@@ -1,0 +1,27 @@
+ {
+  "name": "SunSet Drive CBA",
+  "short_name": "SunSet",
+  "description": "Eventos de autos de alta gama en Córdoba",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#e38228",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "SunSetLogo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "SunSetLogo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["entertainment", "sports"],
+  "lang": "es",
+  "dir": "ltr"
+} 

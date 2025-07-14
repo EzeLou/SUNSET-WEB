@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SunSetCBA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.min.css" >
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="https://sunsetdrive.com.ar/img/logo.png" type="image/jpg">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#e38228">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="SunSet">
+</head>
+
+<body>
+
+<!-- ========================================
+   SECCIÓN VIDEO HEADER
+   ======================================== -->
+
+
+
+<header class="video-header">
+  <video autoplay muted loop playsinline>
+    <source src="Presentacion.mp4" type="video/mp4">
+    Tu navegador no soporta el tag de video.
+  </video>
+  <div class="video-overlay"></div>
+  <div class="video-content">
+    <div id="logo-container" class="sticky-logo w-96 mx-auto mb-6 transition-all duration-500">
+      <img src="https://sunsetdrive.com.ar/img/logo.png" alt="Sunset Drive Logo" class="w-full" id="main-logo" loading="eager">
+    </div>
+    
+    <a 
+    href="#"
+    class="border-[3px] border-white bg-white/5 backdrop-blur-xl text-sm rounded font-medium text-white px-12 py-2 inline-block hover:bg-white hover:text-black transition-colors cursor-pointer"
+    onclick="document.getElementById('Eventos').scrollIntoView({ behavior: 'smooth' }); return false;">Descubre nuestros eventos</a>
+  </div>
+
+    <!-- Texto superpuesto "Próxima SunSet" en la parte inferior -->
+  <div class="proximo-sunset-text-bottom">
+    Próxima SunSet
+    <div class="arrow-down" onclick="document.querySelector('.proximo-evento-detalles').scrollIntoView({ behavior: 'smooth', block: 'center' });">↓</div>
+  </div>
+</header>
+
+<!-- ========================================
+   SECCIÓN PRÓXIMO EVENTO
+   ======================================== -->
+<section class="proximo-evento-detalles">
+  <div class="container">
+    <h2>
+      SUNSET MOTOR SHOW EMBALSE
+    </h2>
+    <div class="evento-fecha-hora">
+      <span class="evento-fecha">30.08.25</span>
+      <span class="evento-separador">|</span>
+      <span class="evento-hora">12:30 A 19HS</span>
+      <div class="evento-underline"></div>
+    </div>
+    <div class="evento-descripcion-corta">
+      EXPOSICIÓN DE AUTOS DEPORTIVOS Y CLÁSICOS - SHOW DE DRIFT, RALLY Y AEREO - MÚSICA SORTEOS Y MÁS
+    </div>
+    <div class="evento-buttons">
+      <a href="#" class="evento-button inscribir">
+        Inscribir mi auto
+      </a>
+      
+      <a href="#" class="evento-button sponsor">
+        Ser esponsor
+      </a>
+      
+      <a href="#" class="evento-button ver">
+        Quiero ver
+      </a>
+    </div>
+  </div>
+</section>
+
+<img id="sticky-header-logo" src="https://sunsetdrive.com.ar/img/logo.png" alt="Logo fijo">
+
+<script>
+  // Throttle function para optimizar el scroll
+  function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+      const args = arguments;
+      const context = this;
+      if (!inThrottle) {
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(() => inThrottle = false, limit);
+      }
+    }
+  }
+
+  // Optimizar scroll listener
+  window.addEventListener('scroll', throttle(function () {
+    const logoContainer = document.getElementById('logo-container');
+    const stickyLogo = document.getElementById('sticky-header-logo');
+
+    if (window.scrollY > 550) {
+      logoContainer.classList.add('shrink');
+      stickyLogo.style.width = '125px';
+      stickyLogo.style.opacity = '1';
+    } else {
+      logoContainer.classList.remove('shrink');
+      stickyLogo.style.width = '0';
+      stickyLogo.style.opacity = '0';
+    }
+  }, 16)); // 60fps
+</script>
+
+<!-- ========================================
+   SECCIÓN EVENTO CARTELERA
+   ======================================== -->
+<div class="EventoCartelera-container" id="Eventos">
+  <!-- Left column: text -->
+  <div class="EventoCartelera-text">
+    <h2>SunSet Massiv</h2>
+    <p>El evento de Cordoba que reune a los mejores 200 autos de alta gamma con publico y el show de aviones mas LoL de todos</p>
+    <a href="https://youtu.be/M5jQ1I8E7U8?si=T-OVR4dpZtXPnf31" class="EventoCartelera-button" target="_blank">MIRA EL VIDEO →</a>
+  </div>
+
+  <!-- Right column: interactive gallery -->
+  <div class="EventoCartelera-gallery">
+    <img src="SunSetLogo.jpg" alt="Evento 6" loading="lazy">
+    <img src="Auto amarillo rally.png" alt="Evento 7" loading="lazy">
+    <img src="Auto Azul.png" alt="Evento 8" loading="lazy">
+    <img src="FUIIIIIIM.png" alt="Evento 9" loading="lazy">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj6_fxhv6WmP6rUqK6H2ZpRMltxzUyQiWb9w&s" alt="Evento 10" loading="lazy">
+  </div>
+</div>
+
+
+<!--Evento 2-->
+
+<div class="EventoCartelera-container">
+  <!-- Right column: interactive gallery -->
+  <div class="EventoCartelera-gallery">
+    <img src="SunSetLogo.jpg" alt="Evento 6">
+    <img src="Auto amarillo rally.png" alt="Evento 7">
+    <img src="Auto Azul.png" alt="Evento 8">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwFosceJHkAoRscyd5wRFo6zy1IKH2652wxQ&s" alt="Evento 9">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj6_fxhv6WmP6rUqK6H2ZpRMltxzUyQiWb9w&s" alt="Evento 10">
+  </div>
+  <!-- Left column: text -->
+  <div class="EventoCartelera-text">
+    <h2>SunSet expres GOD</h2>
+    <p>YY HOOOOY ESOOOOOOY ESTA NOOOOCHE PERIDIIIIDOOOO, SANGRE Y SAAAANGRE A CAIIIIIDO</p>
+  </div>
+</div>
+
+<!-- ========================================
+   SECCIÓN EVENTOS ANTERIORES
+   ======================================== -->
+<section class="EventosAnteriores-section">
+  <div class="EventosAnteriores-carousel">
+    <div id="EventosAnterioresSlides" class="EventosAnteriores-slides">
+      <!-- Slide 1 -->
+      <div class="EventoAnteriores-slide">
+        <div class="slide-image">
+          <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=600&q=80" alt="Evento Ferrari 2023">
+        </div>
+        <div class="slide-content">
+          <h3>Ferrari Sunset Run 2023</h3>
+          <p>Un atardecer inolvidable recorriendo las sierras con más de 30 Ferraris. Música, gastronomía y una comunidad apasionada por los autos de lujo.</p>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="EventoAnteriores-slide">
+        <div class="slide-image">
+          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Evento Rally 2022">
+        </div>
+        <div class="slide-content">
+          <h3>Rally de Lujo 2022</h3>
+          <p>Un rally exclusivo con paradas gourmet y paisajes únicos. Participaron autos de alta gama y celebridades del mundo motor.</p>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="EventoAnteriores-slide">
+        <div class="slide-image">
+          <img src="https://images.unsplash.com/photo-1511918984145-48de785d4c4e?auto=format&fit=crop&w=600&q=80" alt="Evento Night Drive">
+        </div>
+        <div class="slide-content">
+          <h3>Night Drive Experience</h3>
+          <p>Recorrido nocturno por la ciudad con luces, DJ en vivo y una caravana de autos deportivos. ¡Una noche para recordar!</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+  <!-- Carousel Pagination Markup -->
+  <div class="pagination">
+    <div class="bullets">
+      <span class="bullet active" role="button" aria-label="slide 1" tabindex="0">
+        <svg width="20" height="20">
+          <mask id="carousel-bullet-mask-120">
+            <circle cx="10" cy="10" r="9" stroke-width="2" stroke="#ffffff" fill="none"></circle>
+          </mask>
+          <g mask="url(#carousel-bullet-mask-120)">
+            <circle class="bullet-bg" cx="10" cy="10" r="10" fill="#ffffff"></circle>
+            <circle class="bullet-progress-circle" cx="10" cy="10" r="9" stroke-width="3" fill="none"></circle>
+          </g>
+        </svg>
+      </span>
+
+      <span class="bullet" role="button" aria-label="slide 2" tabindex="0">
+        <svg width="20" height="20">
+          <mask id="carousel-bullet-mask-663">
+            <circle cx="10" cy="10" r="9" stroke-width="2" stroke="#ffffff" fill="none"></circle>
+          </mask>
+          <g mask="url(#carousel-bullet-mask-663)">
+            <circle class="bullet-bg" cx="10" cy="10" r="10" fill="#ffffff"></circle>
+            <circle class="bullet-progress-circle" cx="10" cy="10" r="9" stroke-width="3" fill="none"></circle>
+          </g>
+        </svg>
+      </span>
+
+      <span class="bullet" role="button" aria-label="slide 3" tabindex="0">
+        <svg width="20" height="20">
+          <mask id="carousel-bullet-mask-199">
+            <circle cx="10" cy="10" r="9" stroke-width="2" stroke="#ffffff" fill="none"></circle>
+          </mask>
+          <g mask="url(#carousel-bullet-mask-199)">
+            <circle class="bullet-bg" cx="10" cy="10" r="10" fill="#ffffff"></circle>
+            <circle class="bullet-progress-circle" cx="10" cy="10" r="9" stroke-width="3" fill="none"></circle>
+          </g>
+        </svg>
+      </span>
+    </div>
+  </div>
+</section>
+<script>
+  // Carousel logic for Eventos Anteriores
+  const eventosSlides = document.getElementById('EventosAnterioresSlides');
+  const bullets = document.querySelectorAll('.bullet');
+  let eventosCurrent = 0;
+  const eventosTotal = eventosSlides.children.length;
+  let autoplayTimer;
+
+  function updateEventosCarousel() {
+    eventosSlides.style.transform = `translateX(-${eventosCurrent * 100}%)`;
+    
+    // Actualizar bullets y reiniciar animación
+    bullets.forEach((bullet, i) => {
+      bullet.classList.toggle('active', i === eventosCurrent);
+      
+      // Reiniciar animación del círculo de progreso
+      const progressCircle = bullet.querySelector('.bullet-progress-circle');
+      if (progressCircle) {
+        progressCircle.style.animation = 'none';
+        progressCircle.offsetHeight; // Trigger reflow
+        progressCircle.style.animation = i === eventosCurrent ? 'progressAnimation 15s linear forwards' : 'none';
+      }
+    });
+  }
+
+  function nextSlide() {
+    eventosCurrent = (eventosCurrent + 1) % eventosTotal;
+    updateEventosCarousel();
+    startAutoplay();
+  }
+
+  function startAutoplay() {
+    clearTimeout(autoplayTimer);
+    autoplayTimer = setTimeout(nextSlide, 15000);
+  }
+  
+  bullets.forEach((bullet, i) => {
+    bullet.onclick = function() {
+      eventosCurrent = i;
+      updateEventosCarousel();
+      startAutoplay();
+    }
+  });
+
+  // Iniciar autoplay
+  startAutoplay();
+
+  // Debounce function para optimizar resize
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  // Responsive: stack on mobile
+  function handleEventosResponsive() {
+    const slides = document.querySelectorAll('.EventoAnteriores-slide');
+    if (window.innerWidth < 700) {
+      slides.forEach(slide => {
+        slide.style.flexDirection = 'column';
+        slide.children[0].querySelector('img').style.borderRadius = '0';
+        slide.children[1].style.padding = '24px 16px';
+      });
+    } else {
+      slides.forEach(slide => {
+        slide.style.flexDirection = 'row';
+        slide.children[0].querySelector('img').style.borderRadius = '0';
+        slide.children[1].style.padding = '36px 32px';
+      });
+    }
+  }
+  window.addEventListener('resize', debounce(handleEventosResponsive, 250));
+  handleEventosResponsive();
+</script>
+
+
+
+<!-- Marcas que nos bancasn -->
+
+<section class="Seccion_Patrocinadores">
+  <div class="Carrusel">
+    <div class="Caballos">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj6_fxhv6WmP6rUqK6H2ZpRMltxzUyQiWb9w&s" alt="Sponsor 1" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwFosceJHkAoRscyd5wRFo6zy1IKH2652wxQ&s" alt="Sponsor 2" />
+      <img src="https://static.vecteezy.com/system/resources/previews/020/502/708/non_2x/audi-brand-symbol-logo-white-design-german-cars-automobile-illustration-with-red-background-free-vector.jpg" alt="Sponsor 3" />
+      <img src="https://tageblatt.com.ar/wp-content/uploads/2024/04/bmw2-1024x576.jpg" alt="Sponsor 4" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXilBj8CNXlhvSJt-qlycn5TvfiMI_VGxtPA&s" alt="Sponsor 5" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj6_fxhv6WmP6rUqK6H2ZpRMltxzUyQiWb9w&s" alt="Sponsor 1" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwFosceJHkAoRscyd5wRFo6zy1IKH2652wxQ&s" alt="Sponsor 2" />
+      <img src="https://static.vecteezy.com/system/resources/previews/020/502/708/non_2x/audi-brand-symbol-logo-white-design-german-cars-automobile-illustration-with-red-background-free-vector.jpg" alt="Sponsor 3" />
+      <img src="https://tageblatt.com.ar/wp-content/uploads/2024/04/bmw2-1024x576.jpg" alt="Sponsor 4" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXilBj8CNXlhvSJt-qlycn5TvfiMI_VGxtPA&s" alt="Sponsor 5" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj6_fxhv6WmP6rUqK6H2ZpRMltxzUyQiWb9w&s" alt="Sponsor 1" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwFosceJHkAoRscyd5wRFo6zy1IKH2652wxQ&s" alt="Sponsor 2" />
+      <img src="https://static.vecteezy.com/system/resources/previews/020/502/708/non_2x/audi-brand-symbol-logo-white-design-german-cars-automobile-illustration-with-red-background-free-vector.jpg" alt="Sponsor 3" />
+      <img src="https://tageblatt.com.ar/wp-content/uploads/2024/04/bmw2-1024x576.jpg" alt="Sponsor 4" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXilBj8CNXlhvSJt-qlycn5TvfiMI_VGxtPA&s" alt="Sponsor 5" />
+      
+      
+    </div>
+    <div class="Caballos" aria-hidden="true">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj6_fxhv6WmP6rUqK6H2ZpRMltxzUyQiWb9w&s" alt="Sponsor 1" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwFosceJHkAoRscyd5wRFo6zy1IKH2652wxQ&s" alt="Sponsor 2" />
+      <img src="https://static.vecteezy.com/system/resources/previews/020/502/708/non_2x/audi-brand-symbol-logo-white-design-german-cars-automobile-illustration-with-red-background-free-vector.jpg" alt="Sponsor 3" />
+      <img src="https://tageblatt.com.ar/wp-content/uploads/2024/04/bmw2-1024x576.jpg" alt="Sponsor 4" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXilBj8CNXlhvSJt-qlycn5TvfiMI_VGxtPA&s" alt="Sponsor 5" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj6_fxhv6WmP6rUqK6H2ZpRMltxzUyQiWb9w&s" alt="Sponsor 1" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwFosceJHkAoRscyd5wRFo6zy1IKH2652wxQ&s" alt="Sponsor 2" />
+      <img src="https://static.vecteezy.com/system/resources/previews/020/502/708/non_2x/audi-brand-symbol-logo-white-design-german-cars-automobile-illustration-with-red-background-free-vector.jpg" alt="Sponsor 3" />
+      <img src="https://tageblatt.com.ar/wp-content/uploads/2024/04/bmw2-1024x576.jpg" alt="Sponsor 4" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXilBj8CNXlhvSJt-qlycn5TvfiMI_VGxtPA&s" alt="Sponsor 5" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj6_fxhv6WmP6rUqK6H2ZpRMltxzUyQiWb9w&s" alt="Sponsor 1" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwFosceJHkAoRscyd5wRFo6zy1IKH2652wxQ&s" alt="Sponsor 2" />
+      <img src="https://static.vecteezy.com/system/resources/previews/020/502/708/non_2x/audi-brand-symbol-logo-white-design-german-cars-automobile-illustration-with-red-background-free-vector.jpg" alt="Sponsor 3" />
+      <img src="https://tageblatt.com.ar/wp-content/uploads/2024/04/bmw2-1024x576.jpg" alt="Sponsor 4" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXilBj8CNXlhvSJt-qlycn5TvfiMI_VGxtPA&s" alt="Sponsor 5" />
+      
+    </div>
+  </div>
+</section>
+
+
+<!-- Sección "About Me" Sunset Drive -->
+  <section id="QuienesSomos" class="AboutMe-section">
+    <div class="AboutMe-text">
+      <h1>Sobre Nosotros</h1>
+      <p>
+        Somos una organización apasionada por crear experiencias inolvidables. Desde eventos sociales hasta corporativos, nuestro equipo se encarga de cada detalle para que disfrutes sin preocupaciones.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+      </p>
+      <p>
+        Texto de prueba para ver como se ve en el navegador y de paso probar el scroll.
+      </p>
+    </div>
+
+    <div class="AboutMe-carousel">
+      <div class="AboutMe-slides" id="AboutMeSlides">
+        <div class="AboutMe-slide">
+          <img src="https://tse3.mm.bing.net/th/id/OIP.Lhj-sDLgIXi9sxtQWTSQLwHaFW?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Imagen 1">
+        </div>
+        <div class="AboutMe-slide">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7l0FO6rvBvfooyPnpLPtPN32Vche4fC7BzQ&s" alt="Imagen 2">
+        </div>
+        <div class="AboutMe-slide">
+          <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=600&q=80" alt="Imagen 3">
+        </div>
+        <div class="AboutMe-slide">
+          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Imagen 4">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const slides = document.getElementById("AboutMeSlides");
+    let current = 0;
+
+    function AboutMeMove(dir) {
+      const total = slides.children.length;
+      current = (current + dir + total) % total;
+      slides.style.transform = `translateX(-${current * 100}%)`;
+    }
+
+    setInterval(() => AboutMeMove(1), 5000);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Sección de Preguntas Frecuentes -->
+<h2 class="text-3xl font-semibold text-center text-[#0086e8] mb-10 preguntas-titulo">Preguntas frecuentes</h2>
+<div class="Seccion_Preguntas">
+  <div class="Caja_Pregunta">
+    <div class="Pregunta">¿Cómo puedo participar del evento?</div>
+    <div class="Respuesta">Podés contactarnos por el formulario o seguirnos en redes para enterarte.</div>
+  </div>
+  <div class="Caja_Pregunta">
+    <div class="Pregunta">¿Hay algún requisito para participar?</div>
+    <div class="Respuesta">Sí, se priorizan autos de gama media a alta para mantener el estándar.</div>
+  </div>
+  <div class="Caja_Pregunta">
+    <div class="Pregunta">¿Se permiten acompañantes?</div>
+    <div class="Respuesta">Claro, podés venir con un acompañante siempre que se registre.</div>
+  </div>
+  <div class="Caja_Pregunta">
+    <div class="Pregunta">¿Dónde se realizan los eventos?</div>
+    <div class="Respuesta">En diferentes puntos de Córdoba, según la edición del evento.</div>
+  </div>
+  <div class="Caja_Pregunta">
+    <div class="Pregunta">¿Qué incluye la inscripción?</div>
+    <div class="Respuesta">Incluye acceso al recorrido, comida, bebida y souvenirs exclusivos.</div>
+  </div>
+</div>
+
+<script>
+  const questions = document.querySelectorAll('.Pregunta');
+
+  questions.forEach(question => {
+    question.addEventListener('click', () => {
+      const item = question.parentElement;
+
+      // Cierra otras preguntas activas
+      document.querySelectorAll('.Caja_Pregunta').forEach(el => {
+        if (el !== item) {
+          el.classList.remove('active');
+        }
+      });
+
+      // Alterna la clase active
+      item.classList.toggle('active');
+    });
+  });
+</script>
+
+
+
+<footer class="bg-black text-white py-12 px-6 md:px-20">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+    <!-- Izquierda: Logo y redes sociales -->
+    <div class="space-y-6">
+      <div>
+        <img src="SunSetLogo.jpg" alt="SunSet Logo" class="w-32">
+      </div>
+      <div class="flex space-x-6">
+        <a href="https://www.instagram.com/sunset_drive_cba/" aria-label="Instagram" class="hover:opacity-80" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png" alt="Instagram" class="w-6 h-6">
+        </a>
+        <a href="https://www.youtube.com/@SunsetDriveCba" aria-label="YouTube" class="hover:opacity-80" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube" class="w-6 h-6">
+        </a>
+      </div>
+    </div>
+
+    <!-- Derecha: Secciones -->
+    <div class="grid grid-cols-3 gap-8 text-sm">
+      <div>
+        <h3 class="text-[#0086e8] font-semibold mb-3">Productos</h3>
+        <ul class="space-y-2">
+          <li><a
+            onclick="document.querySelector('.proximo-evento-detalles').scrollIntoView({ behavior: 'smooth', block: 'center' })"
+            class="hover:text-[#ff0f0e] cursor-pointer">Proximo evento</a></li>
+          <li><a 
+            onclick="document.getElementById('Eventos').scrollIntoView({ behavior: 'smooth' });"
+            class="hover:text-[#ff0f0e] cursor-pointer">Eventos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-[#0086e8] font-semibold mb-3">Nosotros</h3>
+        <ul class="space-y-2">
+          <li><a
+            onclick="document.querySelector('#QuienesSomos').scrollIntoView({ behavior: 'smooth', block: 'center' })"
+            class="hover:text-[#ff0f0e] cursor-pointer">Quienes somos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-[#0086e8] font-semibold mb-3">Contacto</h3>
+        <ul class="space-y-2">
+          <li><a href="tel:+5493511234567" class="hover:text-[#ff0f0e] cursor-pointer">+54 9 351 123-4567</a></li>
+          <li><a href="mailto:info@sunsetdrive.com.ar" class="hover:text-[#ff0f0e] cursor-pointer">info@sunsetdrive.com.ar</a></li>
+          <li><a href="https://www.instagram.com/sunset_drive_cba/" target="_blank" class="hover:text-[#ff0f0e] cursor-pointer">@Sunsetdrive</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+<script>
+  // Registrar Service Worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+          console.log('SW registrado exitosamente:', registration.scope);
+        })
+        .catch(error => {
+          console.log('SW registro falló:', error);
+        });
+    });
+  }
+</script>
+</body>
+</html>
+
+
