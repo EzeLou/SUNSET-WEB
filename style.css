@@ -1,6 +1,89 @@
 /* ========================================
-   SECCIÓN VIDEO HEADER
-   ======================================== */
+FUENTE GLOBAL - FUTURA PT TYPEKIT
+======================================== */
+
+* {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Definiciones de todas las variantes de Futura PT */
+.futura-light {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.futura-light-italic {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.futura-book {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.futura-book-italic {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.futura-medium {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.futura-medium-italic {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.futura-demi {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.futura-demi-italic {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.futura-heavy {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.futura-heavy-italic {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.futura-extra-bold {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.futura-extra-bold-italic {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+/* ========================================
+SECCIÓN VIDEO HEADER
+======================================== */
 
 header.video-header {
   position: relative;
@@ -30,30 +113,38 @@ header.video-header video {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Oscurece el video */
+  background: rgba(0, 0, 0, 0.5); /* Oscurece el video */
   z-index: 1;
 }
 
 .video-content {
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  padding-top: 10vh; /* Mueve el logo más arriba */
 }
 
-.sticky-logo {
-  transition: all 0.5s ease;
+.logo-container {
+  width: clamp(100px, 40vh, 600px);
+  margin: 0 auto 1.5vh auto; 
+  transition: all 1.5s ease;
 }
 
-.shrink {
-  width: 100px !important;
+.logo-container.shrink {
+  width: 10vh !important;
 }
 
-#sticky-header-logo {
+#sticky-header-logo { /*Logo fijo esquina*/
   position: fixed;
-  top: 10px;
-  left: 10px;
+  top: 13px; /*Poiscion Y del logo*/
+  left: 13px; /*Poiscion X del logo*/
   width: 0;
   opacity: 0;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease; /*Animacion del logo*/
   z-index: 9999;
 }
 
@@ -67,22 +158,28 @@ header.video-header video {
 
 .proximo-sunset-text-bottom {
   position: absolute;
-  bottom: 60px;
+  bottom: clamp(40px, 8vh, 80px); /* Usando vh para considerar altura */
   left: 50%;
   transform: translateX(-50%);
-  font-size: 3.5rem; /* Reducido de 5rem a 3.5rem */
+  font-size: clamp(2rem, min(4vw, 6vh), 5rem); /* Enfoque Ferrari: considera ancho Y alto */
   font-weight: 900;
   color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  text-shadow: 0 8px 16px rgba(0,0,0,0.8);
+  letter-spacing: clamp(0.05em, 0.8vw, 0.15em); /* Responsive letter spacing */
+  text-shadow: 0 clamp(4px, 1vw, 8px) clamp(8px, 2vw, 16px) rgba(0,0,0,0.8); /* Responsive shadow */
   line-height: 1.1;
   z-index: 2;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.proximo-sunset-text-bottom:hover {
+  transform: translateX(-50%) scale(1.05);
 }
 
 .proximo-sunset-text-bottom .arrow-down {
-  font-size: 2.5rem; /* Reducido de 3rem a 2.5rem */
-  margin-top: 20px;
+  font-size: clamp(1.2rem, min(2.5vw, 3.5vh), 2rem); /* Enfoque Ferrari para la flecha */
+  margin-top: clamp(8px, 1.5vh, 15px);
   animation: bounce 2s infinite;
   display: block;
   cursor: pointer;
@@ -104,42 +201,44 @@ header.video-header video {
 /* Sección próximo evento */
 .proximo-evento-detalles {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  padding: 80px 20px;
+  padding: 5vh 0;
+  margin-top: 2vh;
   text-align: center;
 }
 
 .proximo-evento-detalles .container {
-  max-width: 1200px;
+  max-width: 12000px;
   margin: 0 auto;
 }
 
 .proximo-evento-detalles h2 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 4.5vw, 4rem);
   font-weight: 800;
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: 30px;
+  margin-bottom: 3vh;
+  padding: 0 10%; /* Espacio del 10% en cada lado */
 }
 
 .evento-fecha-hora {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
-  font-size: 2.2rem;
+  gap: 2vw;
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
   font-weight: 700;
   color: #fff;
-  margin-bottom: 18px;
+  margin-bottom: 2vh;
   position: relative;
   letter-spacing: 0.05em;
 }
 
 .evento-fecha-hora .evento-separador {
   color: #e53935;
-  font-size: 2.5rem;
+  font-size: clamp(1.6rem, 3.3vw, 2.6rem);
   font-weight: 900;
-  margin: 0 12px;
+  margin: 0 1vw;
 }
 
 .evento-fecha-hora .evento-underline {
@@ -159,13 +258,13 @@ header.video-header video {
 .evento-descripcion-corta {
   text-align: center;
   color: #fff;
-  font-size: 1.4rem; /* Aumentado de 1.15rem a 1.4rem */
+  font-size: clamp(1.2rem, 1.9vw, 1.7rem);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  margin-bottom: 32px;
-  margin-top: 8px;
-  line-height: 1.5; /* Agregado para mejor legibilidad */
+  margin-bottom: 0.5vh;
+  margin-top: 0.5vh;
+  line-height: 1.3;
 }
 
 
@@ -173,22 +272,28 @@ header.video-header video {
 .evento-buttons {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 3vw;
   flex-wrap: wrap;
+  align-items: center;
+  margin-top: 4vh;
 }
 
 .evento-button {
   border: 3px solid;
   background-color: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
-  font-size: 18px; /* Aumentado de 16px a 18px */
+  font-size: clamp(0.9rem, 1.4vw, 1.3rem);
   border-radius: 8px;
   font-weight: 600;
-  padding: 15px 30px;
+  padding: 1.5vh 3vw;
   text-decoration: none;
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  min-width: 20vw;
+  text-align: center;
+  max-width: 50%;
+  box-sizing: border-box;
 }
 
 .evento-button.inscribir {
@@ -307,126 +412,6 @@ header.video-header video {
   filter: contrast(100%);
 }
 
-/* ========================================
-   SECCIÓN EVENTOS ANTERIORES
-   ======================================== */
-
-.EventosAnteriores-section {
-  margin: 0 auto;
-  max-width: 1215px;
-  padding: 40px 0 60px 0;
-}
-
-.EventosAnteriores-carousel {
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.13);
-  background: rgba(255,255,255,0.85);
-}
-
-.EventosAnteriores-slides {
-  display: flex;
-  transition: transform 0.7s cubic-bezier(.77,0,.18,1);
-  width: 100%;
-}
-
-.EventoAnteriores-slide {
-  min-width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 0;
-  padding: 0;
-}
-
-.EventoAnteriores-slide .slide-image {
-  flex: 1 1 0;
-  min-width: 0;
-}
-
-.EventoAnteriores-slide .slide-image img {
-  width: 100%;
-  height: 384px;
-  object-fit: cover;
-}
-
-.EventoAnteriores-slide .slide-content {
-  flex: 1 1 0;
-  min-width: 0;
-  padding: 36px 32px;
-}
-
-.EventoAnteriores-slide h3 {
-  font-size: 1.8rem; /* Aumentado de 1.5rem a 1.8rem */
-  color: #e38228;
-  font-weight: 600;
-  margin-bottom: 10px;
-  text-align: center;
-  margin-top: 0;
-}
-
-.EventoAnteriores-slide p {
-  color: #222;
-  font-size: 1.2rem; /* Aumentado de 1.08rem a 1.2rem */
-  margin-bottom: 18px;
-  line-height: 1.6; /* Agregado para mejor legibilidad */
-}
-
-
-
-/* Paginación */
-.pagination {
-  position: relative;
-  text-align: center;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Estilos para la nueva paginación de bullets */
-.bullets {
-  display: flex;
-  gap: 10px;
-}
-
-.bullet {
-  cursor: pointer;
-  transform: scale(0.6);
-  transition: transform 0.3s ease;
-}
-
-.bullet.active {
-  transform: scale(1);
-}
-
-svg {
-  display: block;
-}
-
-.bullet-bg {
-  fill: #000000 !important;
-}
-
-.bullet-progress-circle {
-  stroke: #000000;
-  stroke-dasharray: 56.52;
-  stroke-dashoffset: 56.52;
-  transition: stroke-dashoffset 0.3s ease;
-}
-
-.bullet.active .bullet-progress-circle {
-  stroke: #e38228;
-  animation: progressAnimation 15s linear forwards;
-}
-
-@keyframes progressAnimation {
-  0% {
-    stroke-dashoffset: 56.52;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
 
 /* ========================================
    SECCIÓN PATROCINADORES
@@ -447,11 +432,12 @@ svg {
 
 .Caballos {
   display: flex;
-  gap: 0px; /* Espacio entre imágenes */
+  gap: 15px; /* Espacio entre imágenes */
 }
 
 .Carrusel img {
-  max-height: 127px;
+  max-height: 80px;
+  max-width: 200px;
   height: auto;
   width: auto;
   object-fit: contain;
@@ -476,7 +462,7 @@ svg {
   display: flex;
   flex-wrap: wrap;
   padding: 60px;
-  gap: 40px;
+  gap: 100px;
   justify-content: center; /* Centra horizontalmente */
   align-items: flex-start; /* Alinea arriba verticalmente */
 }
@@ -488,6 +474,7 @@ svg {
 
 .AboutMe-text h1 {
   font-size: 36px;
+  font-weight: bold;
   margin-bottom: 20px;
 }
 
@@ -511,20 +498,20 @@ svg {
 }
 
 .AboutMe-slide {
-  flex: 0 0 80%;
-  margin: 0 10%;
+  flex: 0 0 100%;
+  margin: 0;
   text-align: center;
 }
 
 .AboutMe-slide img {
   width: 100%;
-  height: 400px;
-  max-width: 600px;
+  height: 500px;
+  max-width: none;
   object-fit: cover;
-  object-position: top;
-  border-radius: 10px;
+  object-position: center;
+  border-radius: 0;
   display: block;
-  margin: 0 auto;
+  margin: 0;
 }
 
 /* ========================================
@@ -532,13 +519,17 @@ svg {
    ======================================== */
 
 .preguntas-titulo {
+  font-size: 1.875rem; /* text-3xl equivalent */
+  font-weight: 600; /* font-semibold equivalent */
+  text-align: center;
+  color: #0086e8;
+  margin-bottom: 2.5rem; /* mb-10 equivalent */
   margin-top: 40px;
 }
 
 .Seccion_Preguntas {
   max-width: 700px;
   margin: 40px auto;
-  font-family: Arial, sans-serif;
 }
 
 .Caja_Pregunta {
@@ -625,6 +616,12 @@ svg {
     text-align: center;
   }
   
+  footer .grid > div:first-child > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
   footer .grid > div:last-child {
     grid-template-columns: 1fr !important;
     gap: 20px !important;
@@ -653,76 +650,55 @@ svg {
   }
 }
 
-/* Estilos responsive para "Próxima SunSet" y sección de próximo evento */
-@media (max-width: 768px) {
-  .proximo-sunset-text-bottom {
-    font-size: 2.5rem !important;
-    bottom: 40px !important;
-    letter-spacing: 0.1em !important;
-  }
-  
-  .proximo-sunset-text-bottom .arrow-down {
-    font-size: 2rem !important;
-    margin-top: 15px !important;
-  }
-  
-  .proximo-evento-detalles {
-    padding: 40px 15px !important;
-  }
-  
-  .proximo-evento-detalles h2 {
-    font-size: 2rem !important;
-    margin-bottom: 20px !important;
-  }
-  
-  .evento-descripcion-corta {
-    font-size: 1.2rem !important; /* Ajustado para móvil */
-  }
-  
-
-  
+@media (max-width: 700px) {
   .evento-buttons {
-    flex-direction: column !important;
-    gap: 15px !important;
-    align-items: center !important;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    margin-top: 24px;
   }
-  
   .evento-button {
-    width: 100% !important;
-    max-width: 300px !important;
-    text-align: center !important;
-    padding: 12px 20px !important;
-    font-size: 16px !important; /* Ajustado para móvil */
+    border: 3px solid black;
+    background-color: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    font-size: 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: black;
+    padding: 8px 10px;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+    min-width: 0;
+    width: 85%;
+    text-align: center;
+    margin: 0;
   }
-}
-
-@media (max-width: 480px) {
-  .proximo-sunset-text-bottom {
-    font-size: 2rem !important;
-    bottom: 30px !important;
-    letter-spacing: 0.05em !important;
+  .evento-button.inscribir {
+    border-color: #e38228;
+    background-color: rgba(227, 130, 40, 0.1);
+    color: #e38228;
   }
-  
-  .proximo-sunset-text-bottom .arrow-down {
-    font-size: 1.5rem !important;
-    margin-top: 10px !important;
+  .evento-button.sponsor {
+    border-color: #0086e8;
+    background-color: rgba(0, 134, 232, 0.1);
+    color: #0086e8;
   }
-  
-  .proximo-evento-detalles {
-    padding: 30px 10px !important;
+  .evento-button.ver {
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
   }
-  
-  .proximo-evento-detalles h2 {
-    font-size: 1.5rem !important;
-    margin-bottom: 15px !important;
+  .evento-button:hover {
+    background-color: black;
+    color: white;
   }
-  
   .evento-descripcion-corta {
-    font-size: 1.1rem !important; /* Ajustado para móvil pequeño */
-  }
-  
-  .evento-button {
-    padding: 10px 15px !important;
-    font-size: 14px !important; /* Ajustado para móvil pequeño */
+    width: 90%;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 3.6vw;
+    /* El texto se adapta entre 16px y 24px aprox según pantalla */
   }
 }

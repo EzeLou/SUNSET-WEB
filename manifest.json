@@ -9,13 +9,13 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "SunSetLogo.jpg",
+      "src": "Media/LogoSunSet-512x512.png",
       "sizes": "192x192",
       "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "SunSetLogo.jpg",
+      "src": "Media/LogoSunSet-512x512.png",
       "sizes": "512x512",
       "type": "image/jpeg",
       "purpose": "any maskable"
