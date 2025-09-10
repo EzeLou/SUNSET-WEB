@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sunset Drive</title>
-  <meta name="description" content="Sunset Drive - Exposiciones de autos deportivos y clásicos, shows de drift, rally y acrobacias aéreas. Únete a la comunidad automotriz más vibrante de Argentina.Eventos automotrices en Córdoba.">
+  <title>SunSetCBA</title>
+  <meta name="description" content="SunSet Drive - Eventos automotrices en Córdoba. Exposiciones de autos deportivos y clásicos, shows de drift, rally y acrobacias aéreas. Únete a la comunidad automotriz más vibrante de Argentina.">
   <link rel="stylesheet" href="https://use.typekit.net/nle2uql.css">
   <link rel="stylesheet" href="style.css" >
   <script src="https://cdn.tailwindcss.com"></script>
@@ -17,6 +17,47 @@
 </head>
 
 <body>
+
+<!-- ========================================
+NAVIGATION BAR
+======================================== -->
+<nav class="navbar">
+  <div class="nav-container">
+    <!-- Logo siempre visible -->
+    <div class="nav-center">
+      <img src="Media/LogoSunSet-512x512.png" alt="SunSet Logo" class="nav-logo-img">
+    </div>
+    
+    <!-- Menú desktop -->
+    <div class="nav-menu desktop-menu">
+      <div class="nav-left">
+        <!-- <a href="#proximo-evento" class="nav-link">Próximo Evento</a> -->
+        <a href="#Eventos" class="nav-link">Eventos</a>
+      </div>
+      <div class="nav-right">
+        <a href="#QuienesSomos" class="nav-link">Sobre Nosotros</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </div>
+    </div>
+    
+    <!-- Botón hamburguesa para móvil -->
+    <div class="nav-hamburger mobile-menu">
+      <button class="hamburger-btn" id="hamburger-btn">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Menú móvil desplegable -->
+  <div class="mobile-nav-menu" id="mobile-nav-menu">
+    <!-- <a href="#proximo-evento" class="mobile-nav-link">Próximo Evento</a> -->
+    <a href="#Eventos" class="mobile-nav-link">Eventos</a>
+    <a href="#QuienesSomos" class="mobile-nav-link">Sobre Nosotros</a>
+    <a href="#contacto" class="mobile-nav-link">Contacto</a>
+  </div>
+</nav>
 
 <!-- ========================================
 SECCIÓN VIDEO HEADER
@@ -41,16 +82,16 @@ SECCIÓN VIDEO HEADER
   </div>
 
     <!-- Texto "Próxima SunSet" en la parte inferior -->
-  <a href="#proximo-evento" class="proximo-sunset-text-bottom">
+  <!-- <a href="#proximo-evento" class="proximo-sunset-text-bottom">
     Próxima SunSet
     <div class="arrow-down">↓</div>
-  </a>
+  </a> -->
 </header>
 
 <!-- ========================================
 SECCIÓN PRÓXIMO EVENTO
 ======================================== -->
-<section class="proximo-evento-detalles" id="proximo-evento">
+<!-- <section class="proximo-evento-detalles" id="proximo-evento">
   <div class="container">
     <h2>
       SUNSET MOTOR SHOW EMBALSE
@@ -71,24 +112,22 @@ SECCIÓN PRÓXIMO EVENTO
       MÚSICA SORTEOS Y MÁS
     </div>
     <div class="evento-buttons">
-      <a href="https://sunsetdrive.com.ar/entradas" target="_blank" class="evento-button ver">
+      <a href="#" class="evento-button ver">
         Comprar entradas
       </a>
       
-      <a href="https://sunsetdrive.com.ar/inscribir" target="_blank" class="evento-button inscribir">
+      <a href="#" class="evento-button inscribir">
         Inscribir mi auto
       </a>
       
-      <a href="https://wa.me/5493513344919" target="_blank" class="evento-button sponsor">
-        Ser sponsor
+      <a href="#" class="evento-button sponsor">
+        Ser esponsor
       </a>
     </div>
   </div>
-</section>
+</section> -->
 
-<!--
-<img id="sticky-header-logo" src="Media/LogoSunSet-512x512.png" alt="Logo fijo">
--->
+
 
 <script src="script.js"></script>
 
@@ -96,42 +135,61 @@ SECCIÓN PRÓXIMO EVENTO
 SECCIÓN EVENTO CARTELERA
 ======================================== -->
 <div class="EventoCartelera-container" id="Eventos">
-  <!-- Left column: text -->
-  <div class="EventoCartelera-text">
-    <h2>Sunset Drive – 6ta Edición</h2>
-    <p>El pasado 14 de diciembre de 2024 celebramos una edición inolvidable de Sunset Drive. Iniciamos la caravana en Polo 52, Córdoba, rumbo a Potrero de Garay. Allí, participantes y público general disfrutaron de una exposición de más de 100 autos, show de acrobacias aéreas sobre el lago, stands de reconocidas marcas como Michelin Neumáticos Belgrano, Can-Am, Todo Suspensión, FF Performance, Hudson Custom Garage, entre otras, además de catering, barra de bebidas y música en vivo al atardecer, en una ubicación inigualable.</p>
-    <a href="https://youtu.be/M5jQ1I8E7U8" class="EventoCartelera-button" target="_blank">MIRA EL VIDEO →</a>
+  <!-- Left column: interactive gallery -->
+  <div class="EventoCartelera-gallery">
+    <img src="Media/Cartelera Caravana Solidaria/ph_caravana (1)@0,5x.jpg" alt="Caravana Solidaria - Imagen 1" loading="lazy" class="caravana-solidaria-1">
+    <img src="Media/Cartelera Caravana Solidaria/ph_caravana (2)@0,5x.jpg" alt="Caravana Solidaria - Imagen 2" loading="lazy" class="caravana-solidaria-2">
+    <img src="Media/Cartelera Caravana Solidaria/ph_caravana (5)@0,5x.jpg" alt="Caravana Solidaria - Imagen 3" loading="lazy" class="caravana-solidaria-3">
+    <img src="Media/Cartelera Caravana Solidaria/ph_caravana (6)@0,5x.jpg" alt="Caravana Solidaria - Imagen 4" loading="lazy" class="caravana-solidaria-4">
+    <img src="Media/Cartelera Caravana Solidaria/ph_caravana (9)@0,5x.jpg" alt="Caravana Solidaria - Imagen 5" loading="lazy" class="caravana-solidaria-5">
   </div>
 
-  <!-- Right column: interactive gallery -->
-  <div class="EventoCartelera-gallery">
-    <img src="Media/Cartelera 2/Imagen 1 o 2(1).webp" alt="Evento 6" loading="lazy">
-    <img src="Media/Cartelera 2/Imagen 3(2).webp" alt="Evento 7" loading="lazy">
-    <img src="Media/Cartelera 2/Avion 3.webp" alt="Avioneta" loading="lazy">
-    <img src="Media/Cartelera 2/Imagen 4(2).webp" alt="Evento 8" loading="lazy">
-    <img src="Media/Cartelera 2/Imagen 4 o 5 2(1).webp" alt="Evento 9" loading="lazy">
-  </div>
+  <!-- Right column: text -->
+      <div class="EventoCartelera-text">
+      <h2 class="titulo-estandar">Caravana Solidaria</h2>
+              <p class="descripcion-estandar">Una iniciativa especial que combina nuestra pasión por los autos con la solidaridad. Organizamos una caravana solidaria que recorrió las rutas de Córdoba recaudando donaciones para causas benéficas. Más de 60 autos participaron en esta noble causa, creando conciencia y ayudando a quienes más lo necesitan, demostrando que la comunidad automotriz también tiene un corazón solidario.</p>
+    </div>
 </div>
 
 <!--Evento 2-->
 
 <div class="EventoCartelera-container">
-  <!-- Right column: interactive gallery -->
-  <div class="EventoCartelera-gallery">
-    <img src="Media/Cartelera 1/Imagen 1.webp" alt="Evento SunSet Drive Expres">
-    <img src="Media/Cartelera 1/Imagen 1(1).webp" alt="Evento SunSet Drive Expres">
-    <img src="Media/Cartelera 1/Imagen 3.webp" alt="Evento SunSet Drive Expres">
-    <img src="Media/Cartelera 1/Imagen 4(1).webp" alt="Evento SunSet Drive Expres">
-    <img src="Media/Cartelera 1/Imagen 5.webp" alt="Evento SunSet Drive Expres">
-  </div>
   <!-- Left column: text -->
   <div class="EventoCartelera-text">
-    <h2>SunSet Drive Expres</h2>
-    <p>Esta edición privada comenzó con un desayuno exclusivo en Autocity, para luego iniciar la caravana por las mejores rutas serranas de Córdoba hasta Potrerillo Pueblo de Montaña. Disfrutamos de un almuerzo servido a la mesa, una exposición de los vehículos participantes, stands de marcas como Glabs, Detail Industry y HFI, además de sorteos y una premiación especial del concurso de elegancia.</p>
+    <h2 class="titulo-estandar">Sunset Drive – 6ta Edición</h2>
+    <p class="descripcion-estandar">El pasado 14 de diciembre de 2024 celebramos una edición inolvidable de Sunset Drive. Iniciamos la caravana en Polo 52, Córdoba, rumbo a Potrero de Garay. Allí, participantes y público general disfrutaron de una exposición de más de 100 autos, show de acrobacias aéreas sobre el lago, stands de reconocidas marcas como Michelin Neumáticos Belgrano, Can-Am, Todo Suspensión, FF Performance, Hudson Custom Garage, entre otras, además de catering, barra de bebidas y música en vivo al atardecer, en una ubicación inigualable.</p>
+    <a href="https://youtu.be/M5jQ1I8E7U8?si=T-OVR4dpZtXPnf31" class="EventoCartelera-button" target="_blank">MIRA EL VIDEO →</a>
+  </div>
+
+  <!-- Right column: interactive gallery -->
+  <div class="EventoCartelera-gallery">
+    <img src="Media/Cartelera 2/Imagen 1 o 2(1).webp" alt="Autos deportivos blancos y rojos" loading="lazy" class="autos-deportivos-blancos-rojos">
+    <img src="Media/Cartelera 2/Imagen 3(2).webp" alt="Auto negro" loading="lazy" class="auto-negro">
+    <img src="Media/Cartelera 2/Avion 3.webp" alt="Avioneta en el cielo" loading="lazy" class="avioneta-cielo">
+    <img src="Media/Cartelera 2/Imagen 4(2).webp" alt="Auto rojo" loading="lazy" class="auto-rojo">
+    <img src="Media/Cartelera 2/Imagen 4 o 5 2(1).webp" alt="Evento 9" loading="lazy" class="evento-9">
   </div>
 </div>
 
-<!-- Marcas que nos bancasn -->
+<!--Evento 3-->
+
+<div class="EventoCartelera-container">
+  <!-- Right column: interactive gallery -->
+  <div class="EventoCartelera-gallery">
+    <img src="Media/Cartelera 1/Imagen 1.webp" alt="Evento SunSet Drive Expres" class="evento-sunset-expres-1">
+    <img src="Media/Cartelera 1/Imagen 1(1).webp" alt="Evento SunSet Drive Expres" class="evento-sunset-expres-2">
+    <img src="Media/Cartelera 1/Imagen 3.webp" alt="Evento SunSet Drive Expres" class="evento-sunset-expres-3">
+    <img src="Media/Cartelera 1/Imagen 4(1).webp" alt="Evento SunSet Drive Expres" class="evento-sunset-expres-4">
+    <img src="Media/Cartelera 1/Imagen 5.webp" alt="Evento SunSet Drive Expres" class="evento-sunset-expres-5">
+  </div>
+  <!-- Left column: text -->
+  <div class="EventoCartelera-text">
+    <h2 class="titulo-estandar">SunSet Drive Expres</h2>
+    <p class="descripcion-estandar">Esta edición privada comenzó con un desayuno exclusivo en Autocity, para luego iniciar la caravana por las mejores rutas serranas de Córdoba hasta Potrerillo Pueblo de Montaña. Disfrutamos de un almuerzo servido a la mesa, una exposición de los vehículos participantes, stands de marcas como Glabs, Detail Industry y HFI, además de sorteos y una premiación especial del concurso de elegancia.</p>
+  </div>
+</div>
+
+<!-- Patrocinadores -->
 
 <section class="Seccion_Patrocinadores">
   <div class="Carrusel">
@@ -140,12 +198,11 @@ SECCIÓN EVENTO CARTELERA
       <img src="Media/Sponsors/FF Perfomance.webp" alt="FF Performance" />
       <img src="Media/Sponsors/Autocity logotipo-negro (2).webp" alt="Autocity" />
       <img src="Media/Sponsors/Glabs.webp" alt="GLABS" />
-      <img src="Media/Sponsors/Michelin.webp" alt="Michelin" />
+      <img src="Media/Sponsors/Michelin 2.png" alt="Michelin" />
       <img src="Media/Sponsors/Todo Suspencion.webp" alt="Todo Suspensión" />
       <img src="Media/Sponsors/Detail industry.webp" alt="Detail Industry" />
       <img src="Media/Sponsors/HFI Perfomance.webp" alt="HFI Performance" />
       <img src="Media/Sponsors/Astus.webp" alt="Astus" />
-      <img src="Media/Sponsors/Autoluna.webp" alt="Autoluna" />
       <img src="Media/Sponsors/El Hornito.webp" alt="El Hornito" />
       <img src="Media/Sponsors/Sunset media.webp" alt="Sunset Media" />
       
@@ -155,12 +212,11 @@ SECCIÓN EVENTO CARTELERA
       <img src="Media/Sponsors/FF Perfomance.webp" alt="FF Performance" />
       <img src="Media/Sponsors/Autocity logotipo-negro (2).webp" alt="Autocity" />
       <img src="Media/Sponsors/Glabs.webp" alt="GLABS" />
-      <img src="Media/Sponsors/Michelin.webp" alt="Michelin" />
+      <img src="Media/Sponsors/Michelin 2.png" alt="Michelin" />
       <img src="Media/Sponsors/Todo Suspencion.webp" alt="Todo Suspensión" />
       <img src="Media/Sponsors/Detail industry.webp" alt="Detail Industry" />
       <img src="Media/Sponsors/HFI Perfomance.webp" alt="HFI Performance" />
       <img src="Media/Sponsors/Astus.webp" alt="Astus" />
-      <img src="Media/Sponsors/Autoluna.webp" alt="Autoluna" />
       <img src="Media/Sponsors/El Hornito.webp" alt="El Hornito" />
       <img src="Media/Sponsors/Sunset media.webp" alt="Sunset Media" />
       
@@ -172,14 +228,14 @@ SECCIÓN EVENTO CARTELERA
 <!-- Sección "About Me" Sunset Drive -->
   <section id="QuienesSomos" class="AboutMe-section">
     <div class="AboutMe-text">
-      <h1>Sobre Nosotros</h1>
-      <p>
+      <h1 class="titulo-estandar">Sobre Nosotros</h1>
+      <p class="descripcion-estandar">
         Sunset Drive nació hace 3 años como una simple ruteada entre amigos. La gran repercusión y el entusiasmo del público nos impulsaron a llevar cada edición a un nuevo nivel, elevando la calidad y el profesionalismo de nuestros eventos, y creando experiencias inolvidables para cada participante.
       </p>
-      <p>
+      <p class="descripcion-estandar">
         Hasta hoy, hemos realizado +25 ediciones, reuniendo a +600 autos y +5.000 personas en distintos formatos y locaciones de todo el país.
       </p>
-      <p>
+      <p class="descripcion-estandar">
         Contamos con un equipo de +20 colaboradores especializados en áreas como acreditaciones, ventas, marketing, diseño, publicidad, producción general, organización onsite, safety cars, media makers, entre otros.
       </p>
     </div>
@@ -195,11 +251,11 @@ SECCIÓN EVENTO CARTELERA
 
 
 <!-- Sección de Preguntas Frecuentes -->
-<h2 class="preguntas-titulo">Preguntas frecuentes</h2>
+<h2 class="preguntas-titulo titulo-estandar">Preguntas frecuentes</h2>
 <div class="Seccion_Preguntas">
   <div class="Caja_Pregunta">
     <div class="Pregunta">¿Los niños pagan entrada?</div>
-    <div class="Respuesta">No. Los menores de hasta 10 años inclusive no abonan entrada, presentando DNI en el ingreso.</div>
+    <div class="Respuesta">No. Los menores de hasta 8 años inclusive no abonan entrada, presentando DNI en el ingreso.</div>
   </div>
   <div class="Caja_Pregunta">
     <div class="Pregunta">¿Puedo adquirir entrada en puerta?</div>
@@ -231,40 +287,9 @@ SECCIÓN EVENTO CARTELERA
 
 
 
-<footer class="bg-black text-white py-12 px-6 md:px-20">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+<div id="contacto"></div>
 
-    <!-- Izquierda: Solo el logo -->
-    <div class="space-y-6">
-      <div>
-        <img src="Media/LogoSunSet-512x512.png" alt="SunSet Logo" class="w-32">
-      </div>
-    </div>
-
-    <!-- Derecha: Secciones -->
-    <div class="grid grid-cols-2 gap-8 text-sm">
-      <div>
-        <h3 class="text-[#0086e8] font-semibold mb-3"></h3>
-        <ul class="space-y-2">
-          <li><a href="#proximo-evento" class="hover:text-[#ff0f0e] cursor-pointer">Próximo evento</a></li>
-          <li><a href="#Eventos" class="hover:text-[#ff0f0e] cursor-pointer">Eventos anteriores</a></li>
-          <li><a href="#QuienesSomos" class="hover:text-[#ff0f0e] cursor-pointer">Sobre nosotros</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-[#0086e8] font-semibold mb-3">Contacto</h3>
-        <ul class="space-y-2">
-          <li><a href="mailto:info@sunsetdrive.com.ar" class="hover:text-[#ff0f0e] cursor-pointer">info@sunsetdrive.com.ar</a></li>
-          <li><a href="https://wa.me/5493513344919" target="_blank" class="hover:text-[#ff0f0e] cursor-pointer">+54 9 351 334-4919</a></li>
-          <li><a href="https://www.instagram.com/sunset_drive_cba/" target="_blank" class="hover:text-[#ff0f0e] cursor-pointer">Instagram</a></li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</footer>
-
-
+<script src="footer.js"></script>
 
 </body>
 </html>
