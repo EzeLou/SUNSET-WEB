@@ -8,81 +8,6 @@ FUENTE GLOBAL - FUTURA PT TYPEKIT
   font-style: normal;
 }
 
-
-
-/* Definiciones de todas las variantes de Futura PT */
-.futura-light {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.futura-light-italic {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.futura-book {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.futura-book-italic {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.futura-medium {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.futura-medium-italic {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.futura-demi {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.futura-demi-italic {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.futura-heavy {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.futura-heavy-italic {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.futura-extra-bold {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 800;
-  font-style: normal;
-}
-
-.futura-extra-bold-italic {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 800;
-  font-style: italic;
-}
-
 /* ========================================
 ESTILOS ESTÁNDAR
 ======================================== */
@@ -453,16 +378,11 @@ header.video-header video {
   z-index: 999;
 }
 
-
-
-
-
 /* ========================================
-   SECCIÓN PRÓXIMO EVENTO - COMENTADA
+   SECCIÓN PRÓXIMO EVENTO
    ======================================== */
 
-/* Estilos comentados para la próxima Sunset que ya pasó */
-/* .proximo-sunset-text-bottom {
+.proximo-sunset-text-bottom {
   position: absolute;
   bottom: clamp(40px, 8vh, 80px);
   left: 50%;
@@ -635,9 +555,7 @@ header.video-header video {
 .evento-button.ver:hover {
   background-color: #ffffff !important;
   color: #1a1a1a !important;
-} */
-
-
+}
 
 /* ========================================
    SECCIÓN EVENTO CARTELERA
@@ -731,8 +649,159 @@ header.video-header video {
 .EventoCartelera-gallery img.evento-sunset-expres-4 { object-position: 60% center; }
 .EventoCartelera-gallery img.evento-sunset-expres-5 { object-position: 80% center; }
 
+/* Evento 3: Sunset Motor Show Embalse */
+.EventoCartelera-gallery img.motorshow-embalse-1 { object-position: 15% center; }
+.EventoCartelera-gallery img.motorshow-embalse-2 { object-position: 35% center; }
+.EventoCartelera-gallery img.motorshow-embalse-3 { object-position: center center; }
+.EventoCartelera-gallery img.motorshow-embalse-4 { object-position: 65% center; }
+.EventoCartelera-gallery img.motorshow-embalse-5 { object-position: 85% center; }
 
+/* Evento 4: SunSet Drive Express - Eventos Anteriores */
+.EventoCartelera-gallery img.sunset-express-1 { object-position: 20% center; }
+.EventoCartelera-gallery img.sunset-express-2 { object-position: 40% center; }
+.EventoCartelera-gallery img.sunset-express-3 { object-position: center center; }
+.EventoCartelera-gallery img.sunset-express-4 { object-position: 60% center; }
+.EventoCartelera-gallery img.sunset-express-5 { object-position: 80% center; }
 
+/* ========================================
+   SECCIÓN EVENTOS ANTERIORES - SISTEMA ESTANDARIZADO
+   ======================================== */
+
+.EventosAnteriores-section {
+  margin: 0;
+  width: 100%;
+  padding: 40px 0 60px 0;
+}
+
+/* Contenedor del carousel estandarizado */
+.eventos-carousel-container {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.eventos-carousel-slides {
+  position: relative;
+  overflow: hidden;
+}
+
+.evento-slide {
+  display: none;
+  width: 100%;
+}
+
+.evento-slide.active {
+  display: block;
+}
+
+/* Sistema de bullets estandarizado */
+.eventos-pagination {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eventos-bullets {
+  display: flex;
+  gap: 10px;
+}
+
+.eventos-bullet {
+  cursor: pointer;
+  transform: scale(0.6);
+  transition: transform 0.3s ease;
+}
+
+.eventos-bullet.active {
+  transform: scale(1);
+}
+
+.eventos-bullet svg {
+  display: block;
+}
+
+.eventos-bullet-bg {
+  fill: #000000 !important;
+}
+
+.eventos-bullet-progress {
+  stroke: #000000;
+  stroke-dasharray: 56.52;
+  stroke-dashoffset: 56.52;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.eventos-bullet.active .eventos-bullet-progress {
+  stroke: #e38228;
+  animation: eventosProgressAnimation 15s linear forwards;
+}
+
+/* Paginación */
+.pagination {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para la nueva paginación de bullets */
+.bullets {
+  display: flex;
+  gap: 10px;
+}
+
+.bullet {
+  cursor: pointer;
+  transform: scale(0.6);
+  transition: transform 0.3s ease;
+}
+
+.bullet.active {
+  transform: scale(1);
+}
+
+svg {
+  display: block;
+}
+
+.bullet-bg {
+  fill: #000000 !important;
+}
+
+.bullet-progress-circle {
+  stroke: #000000;
+  stroke-dasharray: 56.52;
+  stroke-dashoffset: 56.52;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.bullet.active .bullet-progress-circle {
+  stroke: #e38228;
+  animation: progressAnimation 8s linear forwards;
+}
+
+@keyframes progressAnimation {
+  0% {
+    stroke-dashoffset: 56.52;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes eventosProgressAnimation {
+  0% {
+    stroke-dashoffset: 56.52;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
 
 /* ========================================
    SECCIÓN PATROCINADORES
@@ -794,14 +863,10 @@ header.video-header video {
   margin: 20px;
 }
 
-
-
 /* Título de "Sobre Nosotros" - 10% más pequeño */
 .AboutMe-text .titulo-estandar {
   font-size: 29px;
 }
-
-
 
 .AboutMe-carousel {
   flex: 2;
@@ -834,8 +899,6 @@ header.video-header video {
 /* ========================================
    SECCIÓN PREGUNTAS FRECUENTES
    ======================================== */
-
-
 
 /* Título de "Preguntas frecuentes" - 10% más pequeño */
 .preguntas-titulo.titulo-estandar {
@@ -994,8 +1057,8 @@ header.video-header video {
   }
 }
 
-/* Estilos responsive comentados para la próxima Sunset */
-/* @media (max-width: 700px) {
+/* Estilos responsive para la próxima Sunset */
+@media (max-width: 700px) {
   .evento-buttons {
     flex-direction: column;
     gap: 16px;
@@ -1045,21 +1108,401 @@ header.video-header video {
     display: block;
     font-size: 3.6vw;
   }
-} */
-
-/* ========================================
-ESTILOS PARA PÁGINA CARAVANA SOLIDARIA
-======================================== */
-
-/* Navbar específica para Caravana Solidaria - Negro sólido */
-.caravana-navbar {
-  background: rgba(0, 0, 0, 1) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
 }
 
-/* Logo visible en la navbar de Caravana Solidaria */
-.caravana-navbar .nav-logo-img {
-  opacity: 1 !important;
-  visibility: visible !important;
+/* ========================================
+   VISOR DE IMÁGENES DE EVENTOS PASADOS - EFECTO DE EXPANSIÓN
+   ======================================== */
+
+/* Contenedor principal del visor de imágenes de eventos pasados */
+.eventos-anteriores-viewer {
+  margin: 20px 0;
+  max-width: 100%;
+  padding: 0 10%;
+}
+
+/* Contenedor principal con layout flex para el visor de eventos pasados */
+.eventos-viewer-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Panel de información del visor de eventos pasados */
+.eventos-info-panel {
+  flex: 0 0 300px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 40px 30px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  color: #ffffff;
+  position: sticky;
+  top: 100px;
+}
+
+/* Título del panel de información de eventos pasados */
+.eventos-info-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #e38228;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Descripción del panel de información de eventos pasados */
+.eventos-info-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #e0e0e0;
+  margin-bottom: 30px;
+  text-align: left;
+  min-height: 120px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Contenedor de estadísticas del visor de eventos pasados */
+.eventos-info-stats {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* Item de estadística del visor de eventos pasados */
+.stat-item {
+  text-align: center;
+  flex: 1;
+}
+
+/* Número de la estadística del visor de eventos pasados */
+.stat-number {
+  display: block;
+  font-size: 32px;
+  font-weight: 800;
+  color: #e38228;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+/* Etiqueta de la estadística del visor de eventos pasados */
+.stat-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #b0b0b0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.main-container-eventos {
+  position: relative;
+  flex: 1;
+  height: 50vh; /* Altura reducida para hacer más rectangular */
+  min-height: 350px;
+  max-height: 500px;
+  overflow: hidden;
+  background-color: #000;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* Estilos base para todas las secciones del visor de eventos pasados */
+.main-container-eventos .section {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  background-color: #c3c3c3;
+  cursor: pointer;
+  transition: all 0.8s ease-in-out;
+  z-index: 1;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Sección central del visor de eventos pasados */
+.center-section-eventos {
+  width: 40%;
+  height: 40%;
+  top: 40%;
+  left: 40%;
+  transform: translate(-30%, -20%);
+  background-color: #008080;
+  color: #fdffff;
+  z-index: 20;
+}
+
+/* Sección superior izquierda del visor de eventos pasados */
+.topleft-section-eventos {
+  width: 28%;
+  height: 72%;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+/* Sección inferior izquierda del visor de eventos pasados */
+.bottomleft-section-eventos {
+  width: 68%;
+  height: 28%;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+/* Sección inferior derecha del visor de eventos pasados */
+.bottomright-section-eventos {
+  width: 32%;
+  height: 68%;
+  bottom: 0;
+  right: 0;
+  box-sizing: border-box;
+}
+
+/* Sección superior derecha del visor de eventos pasados */
+.topright-section-eventos {
+  width: 72%;
+  height: 32%;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+}
+
+/* Contenido de las secciones del visor de eventos pasados */
+.main-container-eventos .section-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* Imágenes de las secciones del visor de eventos pasados */
+.main-container-eventos .section-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 10;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Efecto de borde en las imágenes del visor de eventos pasados */
+.main-container-eventos .section-image:hover {
+  box-shadow: 0 0 20px rgba(0, 128, 128, 0.5);
+}
+
+/* Efectos hover para el visor de eventos pasados */
+.main-container-eventos .section:hover {
+  background-color: #008080;
+  color: #fdffff;
+}
+
+.main-container-eventos .section:hover .section-image {
+  opacity: 0.9;
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
+/* Estados de expansión del visor de eventos pasados - se aplicarán dinámicamente via JavaScript */
+.main-container-eventos .section.expanding {
+  z-index: 30;
+}
+
+.main-container-eventos .section.contracting {
+  z-index: 1;
+}
+
+/* Transiciones suaves para el efecto de expansión del visor de eventos pasados */
+.main-container-eventos .section {
+  will-change: width, height, transform;
+}
+
+/* Responsive design para el visor de eventos pasados */
+@media (max-width: 1024px) {
+  .eventos-viewer-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .eventos-info-panel {
+    flex: none;
+    position: static;
+    order: 1;
+  }
+  
+  .main-container-eventos {
+    order: 2;
+    height: 45vh;
+    min-height: 300px;
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .eventos-viewer-container {
+    gap: 15px;
+  }
+  
+  .eventos-info-panel {
+    padding: 30px 20px;
+  }
+  
+  .eventos-info-title {
+    font-size: 24px;
+  }
+  
+  .eventos-info-description {
+    font-size: 15px;
+  }
+  
+  .main-container-eventos {
+    height: 40vh;
+    min-height: 280px;
+    max-height: 350px;
+  }
+  
+  .eventos-anteriores-viewer {
+    padding: 0 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .eventos-info-panel {
+    padding: 20px 15px;
+  }
+  
+  .eventos-info-title {
+    font-size: 20px;
+  }
+  
+  .eventos-info-description {
+    font-size: 14px;
+  }
+  
+  .eventos-info-stats {
+    gap: 15px;
+  }
+  
+  .stat-number {
+    font-size: 28px;
+  }
+  
+  .stat-label {
+    font-size: 12px;
+  }
+  
+  .main-container-eventos {
+    height: 35vh;
+    min-height: 220px;
+    max-height: 280px;
+  }
+}
+
+/* Mostrar solo 1 imagen del visor en pantallas menores a 1050px */
+@media (max-width: 1050px) {
+  .eventos-viewer-container { display: block; width: 100%; }
+  .eventos-anteriores-viewer { padding: 0 0; }
+  .EventosAnteriores-section { padding: 40px 0; }
+
+  .eventos-info-panel {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 24px 16px;
+  }
+  .eventos-info-title,
+  .eventos-info-description { width: 100%; max-width: 100%; }
+
+  .main-container-eventos {
+    width: 100% !important;
+    height: 45vh;
+    min-height: 260px;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+  .main-container-eventos .section { display: none !important; }
+  .main-container-eventos .center-section-eventos {
+    display: block !important;
+    position: relative;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0; left: 0;
+    transform: none !important;
+    background-color: transparent;
+    border: none !important;
+  }
+  .main-container-eventos .center-section-eventos .section-content {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .main-container-eventos .center-section-eventos .section-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+/* Mobile viewer: main image + thumbs (separate from desktop 5-panel) */
+@media (max-width: 1050px) {
+  .eventos-mobile-viewer { display: block; width: 100%; }
+  .eventos-mobile-viewer .mobile-main {
+    display: block;
+    width: 100%;
+    height: 45vh;
+    min-height: 260px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .eventos-mobile-viewer .eventos-thumbs {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 0 16px;
+    overflow-x: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  .eventos-mobile-viewer .eventos-thumbs img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    opacity: 0.85;
+    border: 2px solid transparent;
+    flex: 0 0 auto;
+    cursor: pointer;
+  }
+  .eventos-mobile-viewer .eventos-thumbs img.active {
+    opacity: 1;
+    border-color: #e38228;
+  }
+}
+
+@media (min-width: 1051px) {
+  .eventos-mobile-viewer { display: none; }
+}
+
+@media (max-width: 1050px) {
+  /* Ocultar visor de 5 paneles en mobile para evitar duplicado */
+  .main-container-eventos { display: none !important; }
 }
