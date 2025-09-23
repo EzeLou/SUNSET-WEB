@@ -568,6 +568,7 @@ const eventosAnterioresData = [
     id: "sunset-drive-6ta",
     title: "Sunset Drive - 6ta Edición",
     description: "El pasado 14 de diciembre de 2024 celebramos una edición inolvidable de Sunset Drive. Iniciamos la caravana en Polo 52, Córdoba, rumbo a Potrero de Garay. Allí, participantes y público general disfrutaron de una exposición de más de 100 autos, show de acrobacias aéreas sobre el lago, stands de reconocidas marcas como Michelin Neumáticos Belgrano, Can-Am, Todo Suspensión, FF Performance, Hudson Custom Garage, entre otras, además de catering, barra de bebidas y música en vivo al atardecer, en una ubicación inigualable.",
+    videoUrl: "https://youtu.be/M5jQ1I8E7U8?si=T-OVR4dpZtXPnf31",
     stats: [
       { number: "100+", label: "Autos" },
       { number: "500+", label: "Personas" },
@@ -605,6 +606,8 @@ class EventosAnterioresCarousel {
     this.autoplayTimer = null;
     this._bulletAnimEndHandler = null;
     this.resumeTimer = null;
+    this.isAnimating = false;
+    this._touch = { startX: 0, startY: 0, startT: 0, moved: false };
     
     this.init();
   }
@@ -669,8 +672,8 @@ class EventosAnterioresCarousel {
           <div class="eventos-viewer-container">
             <!-- Panel de información -->
             <div class="eventos-info-panel">
-              <h3 class="eventos-info-title">${evento.title}</h3>
-              <p class="eventos-info-description">${evento.description}</p>
+              <h3 class="titulo-estandar">${evento.title}</h3>
+              <p class="descripcion-estandar">${evento.description}</p>
               <div class="eventos-info-stats">
                 ${evento.stats.map(stat => `
                   <div class="stat-item">
@@ -679,6 +682,7 @@ class EventosAnterioresCarousel {
                   </div>
                 `).join('')}
               </div>
+              ${evento.videoUrl ? `<a href="${evento.videoUrl}" class="EventoCartelera-button" target="_blank" rel="noopener noreferrer">MIRA EL VIDEO →</a>` : ''}
             </div>
             
             <!-- Visor de imágenes (desktop 5-panel) -->
@@ -772,6 +776,9 @@ class EventosAnterioresCarousel {
 
     // Inicializar efecto de expansión para el slide activo
     this.initializeExpansionEffect();
+
+    // Swipe/touch gestures (simple)
+    this.setupTouchListeners();
   }
 
   initializeExpansionEffect() {
@@ -938,25 +945,21 @@ class EventosAnterioresCarousel {
 
   goToSlide(index) {
     if (index < 0 || index >= this.slides.length) return;
-    
-    this.currentIndex = index;
-    this.updateCarousel();
-    this.startAutoplay();
-    this.initializeExpansionEffect();
+    if (this.isAnimating || index === this.currentIndex) return;
+    const direction = index > this.currentIndex ? 'next' : 'prev';
+    this.transitionTo(index, direction);
   }
 
   nextSlide() {
-    this.currentIndex = (this.currentIndex + 1) % this.slides.length;
-    this.updateCarousel();
-    this.startAutoplay();
-    this.initializeExpansionEffect();
+    if (this.isAnimating) return;
+    const nextIndex = (this.currentIndex + 1) % this.slides.length;
+    this.transitionTo(nextIndex, 'next');
   }
 
   prevSlide() {
-    this.currentIndex = this.currentIndex === 0 ? this.slides.length - 1 : this.currentIndex - 1;
-    this.updateCarousel();
-    this.startAutoplay();
-    this.initializeExpansionEffect();
+    if (this.isAnimating) return;
+    const prevIndex = this.currentIndex === 0 ? this.slides.length - 1 : this.currentIndex - 1;
+    this.transitionTo(prevIndex, 'prev');
   }
 
   updateCarousel() {
@@ -1000,6 +1003,108 @@ class EventosAnterioresCarousel {
 
     // Inicializar viewer móvil independiente (solo mobile)
     this.wireMobileViewer();
+  }
+
+  transitionTo(targetIndex, direction) {
+    if (!this.slides || this.slides.length === 0) return;
+    const currentSlide = this.slides[this.currentIndex];
+    const nextSlide = this.slides[targetIndex];
+    if (!currentSlide || !nextSlide) return;
+
+    this.isAnimating = true;
+    this.pauseAutoplay();
+    this.pauseBulletAnimation();
+
+    // Ensure next slide is visible for animation
+    nextSlide.classList.add('active');
+
+    // Apply animation classes
+    currentSlide.classList.add('is-exiting');
+    if (direction === 'next') {
+      currentSlide.classList.add('slide-out-left');
+      nextSlide.classList.add('slide-in-right');
+    } else {
+      currentSlide.classList.add('slide-out-right');
+      nextSlide.classList.add('slide-in-left');
+    }
+
+    const onAnimEnd = () => {
+      // Cleanup classes on both slides
+      currentSlide.classList.remove('active', 'is-exiting', 'slide-out-left', 'slide-out-right');
+      nextSlide.classList.remove('slide-in-right', 'slide-in-left');
+
+      // Update index and state
+      this.currentIndex = targetIndex;
+      this.isAnimating = false;
+
+      // Update bullets and viewers
+      this.updateCarousel();
+      this.startAutoplay();
+      this.resumeBulletAnimation();
+
+      nextSlide.removeEventListener('animationend', onAnimEnd);
+    };
+
+    // Prefer listening to the incoming slide's animation end
+    nextSlide.addEventListener('animationend', onAnimEnd, { once: true });
+
+    // Fallback in case animationend doesn't fire
+    setTimeout(onAnimEnd, 700);
+  }
+
+  setupTouchListeners() {
+    const el = this.container;
+    if (!el) return;
+    const touchStart = (e) => {
+      const t = e.touches ? e.touches[0] : e;
+      this._touch.startX = t.clientX;
+      this._touch.startY = t.clientY;
+      this._touch.startT = Date.now();
+      this._touch.moved = false;
+      this.pauseAutoplay();
+      this.pauseBulletAnimation();
+    };
+    const touchMove = (e) => {
+      this._touch.moved = true;
+    };
+    const touchEnd = (e) => {
+      const t = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0] : e;
+      const dx = t.clientX - this._touch.startX;
+      const dy = t.clientY - this._touch.startY;
+      const dt = Date.now() - this._touch.startT;
+      const absDx = Math.abs(dx);
+      const absDy = Math.abs(dy);
+      const isSwipe = absDx > 50 && absDy < 80 && dt < 600;
+      if (isSwipe) {
+        if (dx < 0) {
+          this.nextSlide();
+        } else {
+          this.prevSlide();
+        }
+      } else {
+        // Resume autoplay if no swipe performed
+        this.startAutoplay();
+        this.resumeBulletAnimation();
+      }
+    };
+
+    el.addEventListener('touchstart', touchStart, { passive: true });
+    el.addEventListener('touchmove', touchMove, { passive: true });
+    el.addEventListener('touchend', touchEnd, { passive: true });
+
+    // Also support mouse drag on desktop (optional lightweight)
+    let isDown = false;
+    let startX = 0;
+    el.addEventListener('mousedown', (e) => { isDown = true; startX = e.clientX; this.pauseAutoplay(); this.pauseBulletAnimation(); });
+    el.addEventListener('mouseup', (e) => {
+      if (!isDown) return; isDown = false;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 80) {
+        if (dx < 0) this.nextSlide(); else this.prevSlide();
+      } else {
+        this.startAutoplay(); this.resumeBulletAnimation();
+      }
+    });
   }
 
   resetBulletAnimation(bullet) {
