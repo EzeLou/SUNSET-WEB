@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Entradas - SunSetCBA</title>
+  <title>Sunset Drive - Entradas</title>
   <meta name="description" content="Comprar entradas para SunSet Drive - Eventos automotrices en Córdoba. Exposiciones de autos deportivos y clásicos, shows de drift, rally y acrobacias aéreas.">
   <link rel="stylesheet" href="https://use.typekit.net/nle2uql.css">
   <link rel="stylesheet" href="../style.css" >
@@ -14,9 +14,55 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="SunSet">
+  
+  <!-- Estilos para el iframe -->
+  <style>
+    /* Eliminar scroll de la página principal */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden; /* Elimina el scroll de la página */
+    }
+
+    .container {
+      margin: 0 auto;
+    }
+
+    .iframe-container {
+      position: fixed;
+      top: 70px; /* Altura del navbar en escritorio */
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      overflow: hidden; /* Elimina scroll del iframe */
+    }
+
+    /* Media query para móviles */
+    @media (max-width: 768px) {
+      .iframe-container {
+        top: 58px; /* Altura del navbar en móvil */
+      }
+    }
+
+    /* Estilos adicionales para mejorar el manejo táctil en móvil */
+    @media (max-width: 768px) {
+      iframe {
+        -webkit-overflow-scrolling: touch; /* Mejora el scroll táctil en iOS */
+        touch-action: manipulation; /* Optimiza el manejo táctil */
+      }
+    }
+  </style>
 </head>
 
-<body style="padding-top: 120px;">
+<body>
 
 <!-- ========================================
 NAVIGATION BAR
@@ -25,7 +71,7 @@ NAVIGATION BAR
   <div class="nav-container">
     <!-- Logo siempre visible -->
     <div class="nav-center">
-      <img src="/Media/LogoSunSet-512x512.png" alt="SunSet Logo" class="nav-logo-img" style="height: 110px; width: auto; opacity: 1 !important; visibility: visible !important; display: block;">
+      <img src="../Media/LogoSunSet-512x512.png" alt="SunSet Logo" class="nav-logo-img" style="height: 110px; width: auto; opacity: 1 !important; visibility: visible !important; display: block;">
     </div>
     
     <!-- Menú desktop -->
@@ -61,14 +107,38 @@ NAVIGATION BAR
   </div>
 </nav>
 
-<div style="height: 50vh;">
-
-
-</div>
+  <div class="iframe-container">
+    <iframe id="ticketsIframe" src="about:blank"></iframe>
+  </div>
 
 <!-- Scripts -->
 <script src="../script.js"></script>
-<script src="../footer.js"></script>
+
+<script>
+  function loadIframe() {
+    const baseUrl = "https://libretickets.com";
+    const companyTag = "sunset_drive_cba";
+    const companyName = "Sunset Drive"; // Nombre legible de la empresa
+
+    if (!baseUrl || !companyTag) {
+      alert("Por favor completa todos los campos");
+      return;
+    }
+
+    const parentUrl = encodeURIComponent(window.location.href);
+    const encodedCompanyName = encodeURIComponent(companyName);
+    const url = `${baseUrl}/${companyTag}?iframe=true&parentUrl=${parentUrl}&companyName=${encodedCompanyName}`;
+    const iframe = document.getElementById("ticketsIframe");
+
+    iframe.src = url;
+    console.log("Cargando iframe con URL:", url);
+  }
+
+  // Cargar automáticamente al iniciar
+  window.onload = function () {
+    loadIframe();
+  };
+</script>
 
 </body>
 </html>
