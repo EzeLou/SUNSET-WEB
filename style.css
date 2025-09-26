@@ -8,77 +8,307 @@ FUENTE GLOBAL - FUTURA PT TYPEKIT
   font-style: normal;
 }
 
-/* Definiciones de todas las variantes de Futura PT */
-.futura-light {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
+/* ========================================
+ESTILOS ESTÁNDAR
+======================================== */
 
-.futura-light-italic {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.futura-book {
-  font-family: "futura-pt", sans-serif;
+/* Descripción estándar para carteleras y secciones */
+.descripcion-estandar {
+  text-align: left;
+  color: #000;
+  font-size: 16px;
   font-weight: 400;
-  font-style: normal;
+  text-transform: none;
+  letter-spacing: normal;
+  margin-bottom: 0.5vh;
+  margin-top: 0.5vh;
+  line-height: 1.6;
 }
 
-.futura-book-italic {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 400;
-  font-style: italic;
+/* Título estándar para carteleras y secciones */
+.titulo-estandar {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: #000;
+  text-align: center;
 }
 
-.futura-medium {
-  font-family: "futura-pt", sans-serif;
+/* ========================================
+NAVIGATION BAR
+======================================== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  gap: 40px;
+  position: relative;
+}
+
+.nav-left {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo-img {
+  height: 110px;
+  width: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  position: relative;
+  top: 0px;
+}
+
+.nav-right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
   font-weight: 500;
-  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 6px;
+  position: relative;
 }
 
-.futura-medium-italic {
-  font-family: "futura-pt", sans-serif;
+.nav-link:hover {
+  color: #e38228;
+  background: rgba(227, 130, 40, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #e38228;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 80%;
+}
+
+/* ========================================
+   MENÚ HAMBURGUESA PARA MÓVILES
+   ======================================== */
+
+/* Ocultar menú desktop en móviles */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: block;
+  }
+  
+  .nav-container {
+    padding: 0 15px;
+    height: 60px;
+    justify-content: space-between;
+  }
+  
+  .nav-logo-img {
+    height: 100px;
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    top: 0px;
+  }
+  
+  /* En móviles, el logo debe estar a la izquierda */
+  .nav-center {
+    position: static;
+    transform: none;
+  }
+}
+
+/* Mostrar menú desktop en pantallas grandes */
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none;
+  }
+  
+  .desktop-menu {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  /* En PC, el logo debe estar centrado */
+  .nav-container {
+    justify-content: center;
+  }
+  
+  .nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Botón hamburguesa */
+.hamburger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animación del botón hamburguesa */
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Menú móvil desplegable */
+.mobile-nav-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-menu.active {
+  display: flex;
+}
+
+.mobile-nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
   font-weight: 500;
-  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
-.futura-demi {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 600;
-  font-style: normal;
+.mobile-nav-link:hover {
+  color: #e38228;
+  padding-left: 10px;
 }
 
-.futura-demi-italic {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 600;
-  font-style: italic;
+.mobile-nav-link:last-child {
+  border-bottom: none;
 }
 
-.futura-heavy {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 700;
-  font-style: normal;
+/* Responsive para navbar */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 15px;
+    height: 60px;
+  }
+  
+  .nav-logo-img {
+    height: 55px;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .nav-left, .nav-right {
+    gap: 15px;
+  }
+  
+  .nav-container {
+    gap: 30px;
+  }
+  
+  .nav-link {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
 }
 
-.futura-heavy-italic {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.futura-extra-bold {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 800;
-  font-style: normal;
-}
-
-.futura-extra-bold-italic {
-  font-family: "futura-pt", sans-serif;
-  font-weight: 800;
-  font-style: italic;
+@media (max-width: 480px) {
+  .nav-left, .nav-right {
+    gap: 10px;
+  }
+  
+  .nav-container {
+    gap: 20px;
+  }
+  
+  .nav-link {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
 }
 
 /* ========================================
@@ -145,12 +375,8 @@ header.video-header video {
   width: 0;
   opacity: 0;
   transition: all 0.5s ease; /*Animacion del logo*/
-  z-index: 9999;
+  z-index: 999;
 }
-
-
-
-
 
 /* ========================================
    SECCIÓN PRÓXIMO EVENTO
@@ -158,15 +384,15 @@ header.video-header video {
 
 .proximo-sunset-text-bottom {
   position: absolute;
-  bottom: clamp(40px, 8vh, 80px); /* Usando vh para considerar altura */
+  bottom: clamp(40px, 8vh, 80px);
   left: 50%;
   transform: translateX(-50%);
-  font-size: clamp(2rem, min(4vw, 6vh), 5rem); /* Enfoque Ferrari: considera ancho Y alto */
+  font-size: clamp(2rem, min(4vw, 6vh), 5rem);
   font-weight: 900;
   color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: clamp(0.05em, 0.8vw, 0.15em); /* Responsive letter spacing */
-  text-shadow: 0 clamp(4px, 1vw, 8px) clamp(8px, 2vw, 16px) rgba(0,0,0,0.8); /* Responsive shadow */
+  letter-spacing: clamp(0.05em, 0.8vw, 0.15em);
+  text-shadow: 0 clamp(4px, 1vw, 8px) clamp(8px, 2vw, 16px) rgba(0,0,0,0.8);
   line-height: 1.1;
   z-index: 2;
   cursor: pointer;
@@ -178,14 +404,13 @@ header.video-header video {
 }
 
 .proximo-sunset-text-bottom .arrow-down {
-  font-size: clamp(1.2rem, min(2.5vw, 3.5vh), 2rem); /* Enfoque Ferrari para la flecha */
+  font-size: clamp(1.2rem, min(2.5vw, 3.5vh), 2rem);
   margin-top: clamp(8px, 1.5vh, 15px);
   animation: bounce 2s infinite;
   display: block;
   cursor: pointer;
 }
 
-/* Animación para la flecha hacia abajo */
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
@@ -198,7 +423,6 @@ header.video-header video {
   }
 }
 
-/* Sección próximo evento */
 .proximo-evento-detalles {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   padding: 5vh 0;
@@ -218,7 +442,7 @@ header.video-header video {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 3vh;
-  padding: 0 10%; /* Espacio del 10% en cada lado */
+  padding: 0 10%;
 }
 
 .evento-fecha-hora {
@@ -267,8 +491,6 @@ header.video-header video {
   line-height: 1.3;
 }
 
-
-
 .evento-buttons {
   display: flex;
   justify-content: center;
@@ -314,7 +536,6 @@ header.video-header video {
   color: #ffffff;
 }
 
-/* Estilos para los botones del próximo evento */
 .evento-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
@@ -335,8 +556,6 @@ header.video-header video {
   background-color: #ffffff !important;
   color: #1a1a1a !important;
 }
-
-
 
 /* ========================================
    SECCIÓN EVENTO CARTELERA
@@ -372,7 +591,7 @@ header.video-header video {
 }
 
 .EventoCartelera-button {
-  border: 3px solid black;
+  border: 2px solid black;
   background-color: rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(10px);
   font-size: 16px; /* Aumentado de 14px a 16px */
@@ -387,6 +606,27 @@ header.video-header video {
 .EventoCartelera-button:hover {
   background-color: black;
   color: white;
+}
+
+/* Ajustes del botón dentro del panel de Eventos Anteriores - Estilo YouTube */
+.eventos-info-panel .EventoCartelera-button {
+  display: block;
+  width: max-content;
+  margin: 32px auto 0;
+  text-align: center;
+  border: 2px solid #ff0000; /* Borde rojo de YouTube */
+  background-color: rgba(255, 0, 0, 0.2); /* Fondo rojo transparente */
+  color: #ffffff; /* Texto blanco */
+  font-weight: 600; /* Peso de fuente más bold */
+  transition: all 0.3s ease; /* Transición suave */
+}
+
+.eventos-info-panel .EventoCartelera-button:hover {
+  background-color: rgba(255, 0, 0, 0.4); /* Rojo más opaco al hover */
+  border-color: #ff0000; /* Mantener borde rojo */
+  color: #ffffff; /* Mantener texto blanco */
+  transform: translateY(-2px); /* Efecto de elevación sutil */
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3); /* Sombra roja sutil */
 }
 
 .EventoCartelera-gallery {
@@ -405,13 +645,221 @@ header.video-header video {
   transition: .8s ease;
 }
 
-.EventoCartelera-gallery img:hover {
+.EventoCartelera-gallery img {
   cursor: crosshair;
+}
+
+.EventoCartelera-gallery img.active {
   width: 55%;
   opacity: 1;
   filter: contrast(100%);
 }
 
+/* ========================================
+   SISTEMA DE POSICIONAMIENTO DE IMÁGENES
+   ======================================== */ 
+
+/* Evento 3: Sunset Motor Show Embalse */
+.EventoCartelera-gallery img.motorshow-embalse-1 { object-position: 50% center; }
+.EventoCartelera-gallery img.motorshow-embalse-2 { object-position: 75% center; }
+.EventoCartelera-gallery img.motorshow-embalse-3 { object-position: 85% center; }
+.EventoCartelera-gallery img.motorshow-embalse-4 { object-position: 65% center; }
+.EventoCartelera-gallery img.motorshow-embalse-5 { object-position: 50% center; }
+
+ 
+/* ========================================
+   SECCIÓN EVENTOS ANTERIORES - SISTEMA ESTANDARIZADO
+   ======================================== */
+
+.EventosAnteriores-section {
+  margin: 0;
+  width: 100%;
+  padding: 40px 0 60px 0;
+}
+
+/* Contenedor del carousel estandarizado */
+.eventos-carousel-container {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.eventos-carousel-slides {
+  position: relative;
+  overflow: hidden;
+}
+
+.evento-slide {
+  display: none;
+  width: 100%;
+}
+
+.evento-slide.active {
+  display: block;
+}
+
+/* Animaciones de transición para Eventos Anteriores */
+.evento-slide.is-exiting {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.evento-slide.slide-in-right {
+  animation: eaFadeSlideInRight 0.6s ease forwards;
+}
+
+.evento-slide.slide-in-left {
+  animation: eaFadeSlideInLeft 0.6s ease forwards;
+}
+
+.evento-slide.slide-out-left {
+  animation: eaFadeSlideOutLeft 0.6s ease forwards;
+}
+
+.evento-slide.slide-out-right {
+  animation: eaFadeSlideOutRight 0.6s ease forwards;
+}
+
+@keyframes eaFadeSlideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes eaFadeSlideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes eaFadeSlideOutLeft {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(-20px); }
+}
+
+@keyframes eaFadeSlideOutRight {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(20px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .evento-slide.slide-in-right,
+  .evento-slide.slide-in-left,
+  .evento-slide.slide-out-left,
+  .evento-slide.slide-out-right {
+    animation: none !important;
+  }
+}
+
+/* Sistema de bullets estandarizado */
+.eventos-pagination {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eventos-bullets {
+  display: flex;
+  gap: 10px;
+}
+
+.eventos-bullet {
+  cursor: pointer;
+  transform: scale(0.6);
+  transition: transform 0.3s ease;
+}
+
+.eventos-bullet.active {
+  transform: scale(1);
+}
+
+.eventos-bullet svg {
+  display: block;
+}
+
+.eventos-bullet-bg {
+  fill: #000000 !important;
+}
+
+.eventos-bullet-progress {
+  stroke: #000000;
+  stroke-dasharray: 56.52;
+  stroke-dashoffset: 56.52;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.eventos-bullet.active .eventos-bullet-progress {
+  stroke: #e38228;
+  animation: eventosProgressAnimation 15s linear forwards;
+}
+
+/* Paginación */
+.pagination {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para la nueva paginación de bullets */
+.bullets {
+  display: flex;
+  gap: 10px;
+}
+
+.bullet {
+  cursor: pointer;
+  transform: scale(0.6);
+  transition: transform 0.3s ease;
+}
+
+.bullet.active {
+  transform: scale(1);
+}
+
+svg {
+  display: block;
+}
+
+.bullet-bg {
+  fill: #000000 !important;
+}
+
+.bullet-progress-circle {
+  stroke: #000000;
+  stroke-dasharray: 56.52;
+  stroke-dashoffset: 56.52;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.bullet.active .bullet-progress-circle {
+  stroke: #e38228;
+  animation: progressAnimation 8s linear forwards;
+}
+
+@keyframes progressAnimation {
+  0% {
+    stroke-dashoffset: 56.52;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes eventosProgressAnimation {
+  0% {
+    stroke-dashoffset: 56.52;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
 
 /* ========================================
    SECCIÓN PATROCINADORES
@@ -461,7 +909,7 @@ header.video-header video {
   background: #f0f0f0;
   display: flex;
   flex-wrap: wrap;
-  padding: 60px;
+  padding: 60px 0;
   gap: 100px;
   justify-content: center; /* Centra horizontalmente */
   align-items: flex-start; /* Alinea arriba verticalmente */
@@ -470,21 +918,13 @@ header.video-header video {
 .AboutMe-text {
   flex: 1;
   min-width: 280px;
+  margin: 20px;
 }
 
-.AboutMe-text h1 {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 20px;
+/* Título de "Sobre Nosotros" - 10% más pequeño */
+.AboutMe-text .titulo-estandar {
+  font-size: 29px;
 }
-
-.AboutMe-text p {
-  font-size: 18px; /* Aumentado de 16px a 18px */
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-
 
 .AboutMe-carousel {
   flex: 2;
@@ -518,12 +958,9 @@ header.video-header video {
    SECCIÓN PREGUNTAS FRECUENTES
    ======================================== */
 
-.preguntas-titulo {
-  font-size: 1.875rem; /* text-3xl equivalent */
-  font-weight: 600; /* font-semibold equivalent */
-  text-align: center;
-  color: #0086e8;
-  margin-bottom: 2.5rem; /* mb-10 equivalent */
+/* Título de "Preguntas frecuentes" - 10% más pequeño */
+.preguntas-titulo.titulo-estandar {
+  font-size: 29px;
   margin-top: 40px;
 }
 
@@ -561,8 +998,14 @@ header.video-header video {
   padding: 0 20px;
   background: #fff;
   transition: max-height 0.5s ease, opacity 0.3s ease, padding 0.3s ease;
-  font-size: 16px; /* Agregado tamaño de fuente */
-  line-height: 1.6; /* Agregado para mejor legibilidad */
+  /* Aplicando tipografía de descripcion-estandar */
+  text-align: left;
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  line-height: 1.6;
 }
 
 .Caja_Pregunta.active .Respuesta {
@@ -575,7 +1018,7 @@ header.video-header video {
    RESPONSIVE DESIGN
    ======================================== */
 
-/* Responsive para Evento Cartelera */
+/* Responsive para Evento Cartelera y Sobre Nosotros */
 @media (max-width: 900px) {
   .EventoCartelera-container {
     flex-direction: column;
@@ -590,6 +1033,28 @@ header.video-header video {
   .EventoCartelera-gallery {
     order: 2;
     width: 100%;
+    height: 300px;
+  }
+
+  .AboutMe-section {
+    flex-direction: column;
+    padding: 30px 0;
+    gap: 40px;
+  }
+
+  .AboutMe-text {
+    order: 1;
+    margin: 0 20px;
+    min-width: auto;
+  }
+
+  .AboutMe-carousel {
+    order: 2;
+    flex: 1;
+    width: 100%;
+  }
+
+  .AboutMe-slide img {
     height: 300px;
   }
 }
@@ -650,6 +1115,7 @@ header.video-header video {
   }
 }
 
+/* Estilos responsive para la próxima Sunset */
 @media (max-width: 700px) {
   .evento-buttons {
     flex-direction: column;
@@ -699,6 +1165,444 @@ header.video-header video {
     margin-right: auto;
     display: block;
     font-size: 3.6vw;
-    /* El texto se adapta entre 16px y 24px aprox según pantalla */
   }
+}
+
+/* ========================================
+   VISOR DE IMÁGENES DE EVENTOS PASADOS - EFECTO DE EXPANSIÓN
+   ======================================== */
+
+/* Contenedor principal del visor de imágenes de eventos pasados */
+.eventos-anteriores-viewer {
+  margin: 2vh 0;
+  max-width: 100%;
+  padding: 0 2vw; /* Usando viewport width para mejor responsividad */
+}
+
+/* Separación simétrica para pantallas superiores a 1050px */
+@media (min-width: 1051px) {
+  .eventos-anteriores-viewer {
+    padding: 0 3vw; /* Separación simétrica en pantallas grandes */
+  }
+}
+
+/* Contenedor principal con layout flex para el visor de eventos pasados */
+.eventos-viewer-container {
+  display: flex;
+  gap: 2vw; /* Usando viewport width para gap responsive */
+  align-items: flex-start;
+  width: 100%;
+  min-height: 60vh; /* Altura mínima usando viewport height */
+}
+
+/* Panel de información del visor de eventos pasados */
+.eventos-info-panel {
+  flex: 0 0 30%; /* Aumentado a 30% para mejor proporción */
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); /* Mantener fondo negro degradado */
+  padding: 3vh 2vw; /* Usando viewport units para padding responsive */
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3); /* Mantener sombra original */
+  color: #ffffff; /* Texto blanco */
+  position: sticky;
+  top: 10vh; /* Usando viewport height */
+  height: 70vh; /* Altura usando viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* Estilos específicos del panel aplicados a las clases estándar */
+.eventos-info-panel .titulo-estandar {
+  font-size: 32px; /* Mismo tamaño que cartelera */
+  font-weight: bold; /* Mismo peso que cartelera */
+  text-transform: uppercase; /* Mismo transform que cartelera */
+  margin-bottom: 20px; /* Mismo margen que cartelera */
+  color: #ffffff; /* Texto blanco para contraste con fondo negro */
+  text-align: center; /* Mismo alineación que cartelera */
+  letter-spacing: normal; /* Resetear letter-spacing */
+  min-height: auto; /* Resetear min-height */
+  display: block; /* Resetear display flex */
+}
+
+.eventos-info-panel .descripcion-estandar {
+  font-size: 18px; /* Mismo tamaño que cartelera */
+  line-height: 1.6; /* Mismo line-height que cartelera */
+  color: #ffffff; /* Texto blanco para contraste con fondo negro */
+  margin-bottom: 30px; /* Mismo margen que cartelera */
+  text-align: left; /* Mismo alineación que cartelera */
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 1vw; /* Usando viewport width */
+}
+
+/* Estilo personalizado para el scrollbar de la descripción */
+.eventos-info-panel .descripcion-estandar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.eventos-info-panel .descripcion-estandar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.eventos-info-panel .descripcion-estandar::-webkit-scrollbar-thumb {
+  background: #e38228;
+  border-radius: 3px;
+}
+
+.eventos-info-panel .descripcion-estandar::-webkit-scrollbar-thumb:hover {
+  background: #f4922a;
+}
+
+/* Contenedor de estadísticas del visor de eventos pasados */
+.eventos-info-stats {
+  display: flex;
+  justify-content: space-around;
+  gap: 1vw; /* Usando viewport width para gap responsive */
+  margin-top: 2vh; /* Espaciado consistente usando viewport height */
+  padding: 1.5vh 0; /* Padding vertical usando viewport height */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil de separación */
+}
+
+/* Item de estadística del visor de eventos pasados */
+.stat-item {
+  text-align: center;
+  flex: 1;
+}
+
+/* Número de la estadística del visor de eventos pasados */
+.stat-number {
+  display: block;
+  font-size: clamp(1.5rem, 2.5vw, 2rem); /* Usando clamp para responsividad */
+  font-weight: 800;
+  color: #e38228; /* Mantener color naranja para destacar */
+  line-height: 1;
+  margin-bottom: 0.5vh; /* Usando viewport height */
+}
+
+/* Etiqueta de la estadística del visor de eventos pasados */
+.stat-label {
+  display: block;
+  font-size: clamp(0.7rem, 1vw, 0.9rem); /* Usando clamp para responsividad */
+  font-weight: 500;
+  color: #ffffff; /* Texto blanco para contraste con fondo negro */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.main-container-eventos {
+  position: relative;
+  flex: 0 0 70%; /* Ajustado para que coincida con el 30% del panel */
+  height: 60vh; /* Altura usando viewport height */
+  min-height: 40vh; /* Mínimo usando viewport height */
+  max-height: 80vh; /* Máximo usando viewport height */
+  overflow: hidden;
+  background-color: #000;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* Estilos base para todas las secciones del visor de eventos pasados */
+.main-container-eventos .section {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  background-color: #c3c3c3;
+  cursor: pointer;
+  transition: all 0.8s ease-in-out;
+  z-index: 1;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Sección central del visor de eventos pasados */
+.center-section-eventos {
+  width: 40%;
+  height: 40%;
+  top: 40%;
+  left: 40%;
+  transform: translate(-30%, -20%);
+  background-color: #008080;
+  color: #fdffff;
+  z-index: 20;
+}
+
+/* Sección superior izquierda del visor de eventos pasados */
+.topleft-section-eventos {
+  width: 28%;
+  height: 72%;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+/* Sección inferior izquierda del visor de eventos pasados */
+.bottomleft-section-eventos {
+  width: 68%;
+  height: 28%;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+/* Sección inferior derecha del visor de eventos pasados */
+.bottomright-section-eventos {
+  width: 32%;
+  height: 68%;
+  bottom: 0;
+  right: 0;
+  box-sizing: border-box;
+}
+
+/* Sección superior derecha del visor de eventos pasados */
+.topright-section-eventos {
+  width: 72%;
+  height: 32%;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+}
+
+/* Contenido de las secciones del visor de eventos pasados */
+.main-container-eventos .section-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* Imágenes de las secciones del visor de eventos pasados */
+.main-container-eventos .section-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 10;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Efecto de borde en las imágenes del visor de eventos pasados */
+.main-container-eventos .section-image:hover {
+  box-shadow: 0 0 20px rgba(0, 128, 128, 0.5);
+}
+
+/* Efectos hover para el visor de eventos pasados */
+.main-container-eventos .section:hover {
+  background-color: #008080;
+  color: #fdffff;
+}
+
+.main-container-eventos .section:hover .section-image {
+  opacity: 0.9;
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
+/* Estados de expansión del visor de eventos pasados - se aplicarán dinámicamente via JavaScript */
+.main-container-eventos .section.expanding {
+  z-index: 30;
+}
+
+.main-container-eventos .section.contracting {
+  z-index: 1;
+}
+
+/* Transiciones suaves para el efecto de expansión del visor de eventos pasados */
+.main-container-eventos .section {
+  will-change: width, height, transform;
+}
+
+/* Responsive design para el visor de eventos pasados */
+@media (max-width: 1024px) {
+  .eventos-viewer-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .eventos-info-panel {
+    flex: none;
+    position: static;
+    order: 1;
+    height: 80vh; /* Altura fija a 80vh en tablet */
+  }
+  
+  .main-container-eventos {
+    order: 2;
+    height: 45vh;
+    min-height: 300px;
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .eventos-viewer-container {
+    gap: 15px;
+  }
+  
+  .eventos-info-panel {
+    padding: 30px 20px;
+    height: 80vh; /* Altura fija a 80vh en móvil */
+  }
+  
+  .eventos-info-panel .titulo-estandar { 
+    font-size: 28px; /* Mantener proporción con cartelera */
+    margin-bottom: 15px; /* Ajustar para móvil */
+  }
+  
+  .eventos-info-panel .descripcion-estandar { 
+    font-size: 16px; /* Mantener proporción con cartelera */
+    margin-bottom: 20px; /* Ajustar para móvil */
+  }
+
+  .eventos-info-panel .EventoCartelera-button {
+    margin-top: 28px;
+  }
+  
+  .main-container-eventos {
+    height: 40vh;
+    min-height: 280px;
+    max-height: 350px;
+  }
+  
+  .eventos-anteriores-viewer {
+    padding: 0 2%; /* Reducido de 5% a 2% para móviles */
+  }
+}
+
+@media (max-width: 480px) {
+  .eventos-info-panel {
+    padding: 20px 15px;
+    height: 80vh; /* Altura fija a 80vh en móvil pequeño */
+  }
+  
+  .eventos-info-panel .titulo-estandar { 
+    font-size: 24px; /* Mantener proporción con cartelera */
+    margin-bottom: 12px; /* Ajustar para móvil pequeño */
+  }
+  
+  .eventos-info-panel .descripcion-estandar { 
+    font-size: 14px; /* Mantener proporción con cartelera */
+    margin-bottom: 18px; /* Ajustar para móvil pequeño */
+  }
+
+  .eventos-info-panel .EventoCartelera-button {
+    margin-top: 24px;
+  }
+  
+  .eventos-info-stats {
+    gap: 15px;
+  }
+  
+  .stat-number {
+    font-size: 28px;
+  }
+  
+  .stat-label {
+    font-size: 12px;
+  }
+  
+  .main-container-eventos {
+    height: 35vh;
+    min-height: 220px;
+    max-height: 280px;
+  }
+}
+
+/* Estilos para pantallas menores a 1050px - Consolidado */
+@media (max-width: 1050px) {
+  /* Contenedor principal */
+  .eventos-viewer-container { 
+    display: block; 
+    width: 100%; 
+    gap: 2vh; /* Gap responsive */
+  }
+  .eventos-anteriores-viewer { 
+    padding: 0; /* Sin padding para aprovechar todo el espacio */
+  }
+  .EventosAnteriores-section { 
+    padding: 3vh 0; /* Padding responsive */
+  }
+
+  /* Panel de información */
+  .eventos-info-panel {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 2vh 3vw; /* Padding responsive */
+    height: auto; /* Altura automática para mejor adaptación */
+    min-height: 45vh; /* Mínimo usando viewport height */
+    max-height: 70vh; /* Máximo usando viewport height */
+  }
+  
+  .eventos-info-panel .titulo-estandar {
+    font-size: clamp(1.5rem, 3.5vw, 2rem); /* Mantener proporción con cartelera */
+    margin-bottom: 15px; /* Espaciado consistente */
+  }
+  
+  .eventos-info-panel .descripcion-estandar { 
+    font-size: clamp(1rem, 2.2vw, 1.2rem); /* Mantener proporción con cartelera */
+    margin-bottom: 20px; /* Espaciado consistente */
+  }
+  
+  .eventos-info-stats {
+    gap: 1.5vw; /* Gap responsive */
+    margin-top: 1.5vh; /* Espaciado reducido */
+    padding: 1vh 0; /* Padding reducido */
+  }
+
+  /* Visor de imágenes - Ocultar visor de 5 paneles */
+  .main-container-eventos {
+    display: none !important; /* Ocultar visor de 5 paneles en mobile para evitar duplicado */
+  }
+
+  /* Mobile viewer: main image + thumbs */
+  .eventos-mobile-viewer { 
+    display: block; 
+    width: 100%; 
+  }
+  .eventos-mobile-viewer .mobile-main {
+    display: block;
+    width: 100%;
+    height: 45vh;
+    min-height: 260px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .eventos-mobile-viewer .eventos-thumbs {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 0 16px;
+    overflow-x: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  .eventos-mobile-viewer .eventos-thumbs img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    opacity: 0.85;
+    border: 2px solid transparent;
+    flex: 0 0 auto;
+    cursor: pointer;
+  }
+  .eventos-mobile-viewer .eventos-thumbs img.active {
+    opacity: 1;
+    border-color: #e38228;
+  }
+}
+
+/* Ocultar mobile viewer en pantallas grandes */
+@media (min-width: 1051px) {
+  .eventos-mobile-viewer { display: none; }
 }
