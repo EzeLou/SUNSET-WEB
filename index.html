@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sunset Drive</title>
-  <meta name="description" content="SunSet Drive - Eventos automotrices en Córdoba. Exposiciones de autos deportivos y clásicos, shows de drift, rally y acrobacias aéreas. Únete a la comunidad automotriz más vibrante de Argentina.">
+  <meta name="description"
+    content="SunSet Drive - Eventos automotrices en Córdoba. Exposiciones de autos deportivos y clásicos, shows de drift, rally y acrobacias aéreas. Únete a la comunidad automotriz más vibrante de Argentina.">
   <link rel="stylesheet" href="https://use.typekit.net/nle2uql.css">
-  <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="Media/favicon.ico" type="image/x-icon">
   <link rel="manifest" href="/manifest.json">
@@ -18,237 +20,265 @@
 
 <body>
 
-<!-- ========================================
+  <!-- ========================================
 NAVIGATION BAR
 ======================================== -->
-<nav class="navbar">
-  <div class="nav-container">
-    <!-- Logo siempre visible -->
-    <div class="nav-center">
-      <img src="Media/LogoSunSet-512x512.png" alt="SunSet Logo" class="nav-logo-img">
-    </div>
-    
-    <!-- Menú desktop -->
-    <div class="nav-menu desktop-menu">
-      <div class="nav-left">
-        <a href="#proximo-evento" class="nav-link">Próximo Evento</a>
-        <a href="#Eventos" class="nav-link">Eventos</a>
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- Logo siempre visible -->
+      <div class="nav-center">
+        <img src="Media/LogoSunSet-512x512.png" alt="SunSet Logo" class="nav-logo-img">
       </div>
-      <div class="nav-right">
-        <a href="#QuienesSomos" class="nav-link">Sobre Nosotros</a>
-        <a href="#contacto" class="nav-link">Contacto</a>
-      </div>
-    </div>
-    
-    <!-- Botón hamburguesa para móvil -->
-    <div class="nav-hamburger mobile-menu">
-      <button class="hamburger-btn" id="hamburger-btn">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
-    </div>
-  </div>
-  
-  <!-- Menú móvil desplegable -->
-  <div class="mobile-nav-menu" id="mobile-nav-menu">
-    <a href="#proximo-evento" class="mobile-nav-link">Próximo Evento</a>
-    <a href="#Eventos" class="mobile-nav-link">Eventos</a>
-    <a href="#QuienesSomos" class="mobile-nav-link">Sobre Nosotros</a>
-    <a href="#contacto" class="mobile-nav-link">Contacto</a>
-  </div>
-</nav>
 
-<!-- ========================================
+      <!-- Menú desktop -->
+      <div class="nav-menu desktop-menu">
+        <div class="nav-left">
+          <a href="#proximo-evento" class="nav-link">Próximo Evento</a>
+          <a href="#Eventos" class="nav-link">Eventos</a>
+        </div>
+        <div class="nav-right">
+          <a href="#QuienesSomos" class="nav-link">Sobre Nosotros</a>
+          <a href="#contacto" class="nav-link">Contacto</a>
+        </div>
+      </div>
+
+      <!-- Botón hamburguesa para móvil -->
+      <div class="nav-hamburger mobile-menu">
+        <button class="hamburger-btn" id="hamburger-btn">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil desplegable -->
+    <div class="mobile-nav-menu" id="mobile-nav-menu">
+      <a href="#proximo-evento" class="mobile-nav-link">Próximo Evento</a>
+      <a href="#Eventos" class="mobile-nav-link">Eventos</a>
+      <a href="#QuienesSomos" class="mobile-nav-link">Sobre Nosotros</a>
+      <a href="#contacto" class="mobile-nav-link">Contacto</a>
+    </div>
+  </nav>
+
+  <!-- ========================================
 SECCIÓN VIDEO HEADER
 ======================================== -->
 
-<header class="video-header">
-  <video autoplay muted loop playsinline>
-    <source src="Media/Presentacion 2.mp4" type="video/mp4" loading="eager">
-    Tu navegador no soporta el tag de video.
-  </video>
-  <div class="video-overlay"></div> <!-- Fondo oscuro del video -->
-  <div class="video-content">
-    <div id="logo-container" class="logo-container">
-      <img src="Media/LogoSunSet-512x512.png" alt="Sunset Drive Logo" class="w-full" id="main-logo" loading="eager">
-    </div>
-    
-    <!-- Texto "Próxima SunSet" en la parte inferior -->
-    <a href="#proximo-evento" class="proximo-sunset-text-bottom">
-      Próxima SunSet
-      <div class="arrow-down">↓</div>
-    </a>
-  </div>
-</header>
+  <header class="video-header">
+    <video autoplay muted loop playsinline>
+      <source src="Media/Presentacion 2.mp4" type="video/mp4" loading="eager">
+      Tu navegador no soporta el tag de video.
+    </video>
+    <div class="video-overlay"></div> <!-- Fondo oscuro del video -->
+    <div class="video-content">
+      <div id="logo-container" class="logo-container">
+        <img src="Media/LogoSunSet-512x512.png" alt="Sunset Drive Logo" class="w-full" id="main-logo" loading="eager">
+      </div>
 
-<!-- ========================================
+      <!-- Texto "Próxima SunSet" en la parte inferior -->
+      <a href="#proximo-evento" class="proximo-sunset-text-bottom">
+        Próxima SunSet
+        <div class="arrow-down">↓</div>
+      </a>
+    </div>
+  </header>
+
+  <!-- ========================================
 SECCIÓN PRÓXIMO EVENTO
 ======================================== -->
-<section class="proximo-evento-detalles" id="proximo-evento">
-  <div class="container">
-    <h2>
-      SUNSET MOTOR SHOW - COLONIA CAROYA
-    </h2>
-    <div class="evento-fecha-hora">
-      <span class="evento-fecha">16.11.25</span>
-      <span class="evento-separador">|</span>
-      <span class="evento-hora">12:30 A 18HS</span>
-      <div class="evento-underline"></div>
+  <section class="proximo-evento-detalles" id="proximo-evento">
+    <div class="container">
+      <h2>
+        SUNSET MOTOR SHOW - COLONIA CAROYA
+      </h2>
+
+      <div class="evento-fecha-hora">
+        <span class="evento-fecha">16.11.25</span>
+        <span class="evento-separador">|</span>
+        <span class="evento-hora">12:30 A 18HS</span>
+        <div class="evento-underline"></div>
+      </div>
+      <div class="evento-descripcion-corta">
+        📍Ubicacion: <a href="https://maps.app.goo.gl/HLy1pjQSxuwuNZeE6" target="_blank">Kartódromo Colonia Caroya</a>
+      </div>
+      <br>
+      <div class="evento-descripcion-corta">
+        Exposición de autos deportivos, clásicos y exóticos
+      </div>
+      <div class="evento-descripcion-corta">
+        SHOW EN VIVO DE DRIFT, RALLY, KARTING Y ESPECTÁCULO SORPRESA
+      </div>
+      <div class="evento-descripcion-corta">
+        MÚSICA, SORTEOS Y MUCHO MÁS!
+      </div>
+
+      <div class="evento-buttons">
+        <a href="Entradas/IndexEntrada.html" class="evento-button ver">
+          Comprar entradas
+        </a>
+
+        <a href="https://sunsetdrive.com.ar/inscribir" target="_blank" class="evento-button inscribir">
+          Inscribir mi auto
+        </a>
+
+        <a href="https://wa.me/5493513344919" target="_blank" class="evento-button sponsor">
+          Ser sponsor
+        </a>
+      </div>
     </div>
-    <div class="evento-descripcion-corta">
-      EXPOSICIÓN DE AUTOS DEPORTIVOS, CLÁSICOS Y EXÓTICOS
-    </div>
-    <div class="evento-descripcion-corta">
-      SHOW EN VIVO DE DRIFT, RALLY KARTING Y ESPECTÁCULO SORPRESA
-    </div>
-    <div class="evento-descripcion-corta">
-      MÚSICA, SORTEOS Y MUCHO MÁS!
-    </div>
-    <div class="evento-buttons">
-      <a href="Entradas/IndexEntrada.html" class="evento-button ver">
-        Comprar entradas
-      </a>
-      
-      <a href="https://sunsetdrive.com.ar/inscribir" target="_blank" class="evento-button inscribir">
-        Inscribir mi auto
-      </a>
-      
-      <a href="https://wa.me/5493513344919" target="_blank" class="evento-button sponsor">
-        Ser sponsor
-      </a>
-    </div>
-  </div>
-</section>
+  </section>
 
 
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
-<!-- ========================================
+  <!-- ========================================
 SECCIÓN EVENTO CARTELERA
 ======================================== -->
 
-<!--Evento 1: SUNSET MOTOR SHOW - EMBALSE-->
+  <!--Evento 1: SUNSET MOTOR SHOW - EMBALSE-->
 
-<div class="EventoCartelera-container" id="Eventos">
-  <!-- Left column: text -->
-  <div class="EventoCartelera-text">
-    <h2 class="titulo-estandar">SUNSET MOTOR SHOW - EMBALSE</h2>
-    <p class="descripcion-estandar">El sábado 30 de agosto vivimos una edición inolvidable de Sunset Drive en Playa Maldonado, a orillas del lago en Embalse de Calamuchita. Más de 150 autos deportivos, clásicos y exóticos se reunieron en un entorno único, donde miles de personas disfrutaron de shows en vivo de rally y acrobacia aérea. La experiencia se completó con food trucks, música, sorteos y una zona VIP exclusiva para participantes y sponsors. Fue una jornada que combinó pasión por los autos, naturaleza y entretenimiento, consolidando a Embalse como sede de uno de los eventos más esperados del año.</p>
-  </div>
-
-  <!-- Right column: interactive gallery -->
-  <div class="EventoCartelera-gallery">
-    <img src="Media/Cartelera MotorShow Embalse/Rally.webp" alt="Sunset Motor Show Embalse - Show en vivo" loading="lazy" class="motorshow-embalse-1">
-    <img src="Media/Cartelera MotorShow Embalse/Ferrari.webp" alt="Sunset Motor Show Embalse - Ferrari en exhibición" loading="lazy" class="motorshow-embalse-2">
-    <img src="Media/Cartelera MotorShow Embalse/Avioneta.webp" alt="Sunset Motor Show Embalse - Show de acrobacia aérea" loading="lazy" class="motorshow-embalse-3">
-    <img src="Media/Cartelera MotorShow Embalse/Expo.webp" alt="Sunset Motor Show Embalse - Exposición de autos" loading="lazy" class="motorshow-embalse-4">
-    <img src="Media/Cartelera MotorShow Embalse/Clio.webp" alt="Sunset Motor Show Embalse - Espectáculo automotriz" loading="lazy" class="motorshow-embalse-5">
-  </div>
-</div>
-
-<!--Evento 2: Caravana Solidaria-->
-
-<div class="EventoCartelera-container">
-  <!-- Left column: interactive gallery -->
-  <div class="EventoCartelera-gallery">
-    <img src="Media/Cartelera Caravana Solidaria/ph_caravana (1)@0,5x.webp" alt="Caravana Solidaria - Imagen 1" loading="lazy" class="caravana-solidaria-1">
-    <img src="Media/Cartelera Caravana Solidaria/ph_caravana (2)@0,5x.webp" alt="Caravana Solidaria - Imagen 2" loading="lazy" class="caravana-solidaria-2">
-    <img src="Media/Cartelera Caravana Solidaria/ph_caravana (5)@0,5x.webp" alt="Caravana Solidaria - Imagen 3" loading="lazy" class="caravana-solidaria-3">
-    <img src="Media/Cartelera Caravana Solidaria/ph_caravana (6)@0,5x.webp" alt="Caravana Solidaria - Imagen 4" loading="lazy" class="caravana-solidaria-4">
-    <img src="Media/Cartelera Caravana Solidaria/ph_caravana (9)@0,5x.webp" alt="Caravana Solidaria - Imagen 5" loading="lazy" class="caravana-solidaria-5">
-  </div>
-
-  <!-- Right column: text -->
-      <div class="EventoCartelera-text">
-      <h2 class="titulo-estandar">Caravana Solidaria</h2>
-              <p class="descripcion-estandar">Una iniciativa especial que combina nuestra pasión por los autos con la solidaridad. Organizamos una caravana solidaria que recorrió las rutas de Córdoba recaudando donaciones para causas benéficas. Más de 60 autos participaron en esta noble causa, creando conciencia y ayudando a quienes más lo necesitan, demostrando que la comunidad automotriz también tiene un corazón solidario.</p>
+  <div class="EventoCartelera-container" id="Eventos">
+    <!-- Left column: text -->
+    <div class="EventoCartelera-text">
+      <h2 class="titulo-estandar">SUNSET MOTOR SHOW - EMBALSE</h2>
+      <p class="descripcion-estandar">El sábado 30 de agosto vivimos una edición inolvidable de Sunset Drive en Playa
+        Maldonado, a orillas del lago en Embalse de Calamuchita. Más de 150 autos deportivos, clásicos y exóticos se
+        reunieron en un entorno único, donde miles de personas disfrutaron de shows en vivo de rally y acrobacia aérea.
+        La experiencia se completó con food trucks, música, sorteos y una zona VIP exclusiva para participantes y
+        sponsors. Fue una jornada que combinó pasión por los autos, naturaleza y entretenimiento, consolidando a Embalse
+        como sede de uno de los eventos más esperados del año.</p>
     </div>
-</div>
 
- 
+    <!-- Right column: interactive gallery -->
+    <div class="EventoCartelera-gallery">
+      <img src="Media/Cartelera MotorShow Embalse/Rally.webp" alt="Sunset Motor Show Embalse - Show en vivo"
+        loading="lazy" class="motorshow-embalse-1">
+      <img src="Media/Cartelera MotorShow Embalse/Ferrari.webp" alt="Sunset Motor Show Embalse - Ferrari en exhibición"
+        loading="lazy" class="motorshow-embalse-2">
+      <img src="Media/Cartelera MotorShow Embalse/Avioneta.webp"
+        alt="Sunset Motor Show Embalse - Show de acrobacia aérea" loading="lazy" class="motorshow-embalse-3">
+      <img src="Media/Cartelera MotorShow Embalse/Expo.webp" alt="Sunset Motor Show Embalse - Exposición de autos"
+        loading="lazy" class="motorshow-embalse-4">
+      <img src="Media/Cartelera MotorShow Embalse/Clio.webp" alt="Sunset Motor Show Embalse - Espectáculo automotriz"
+        loading="lazy" class="motorshow-embalse-5">
+    </div>
+  </div>
 
- 
+  <!--Evento 2: Caravana Solidaria-->
+
+  <div class="EventoCartelera-container">
+    <!-- Left column: interactive gallery -->
+    <div class="EventoCartelera-gallery">
+      <img src="Media/Cartelera Caravana Solidaria/ph_caravana (1)@0,5x.webp" alt="Caravana Solidaria - Imagen 1"
+        loading="lazy" class="caravana-solidaria-1">
+      <img src="Media/Cartelera Caravana Solidaria/ph_caravana (2)@0,5x.webp" alt="Caravana Solidaria - Imagen 2"
+        loading="lazy" class="caravana-solidaria-2">
+      <img src="Media/Cartelera Caravana Solidaria/ph_caravana (5)@0,5x.webp" alt="Caravana Solidaria - Imagen 3"
+        loading="lazy" class="caravana-solidaria-3">
+      <img src="Media/Cartelera Caravana Solidaria/ph_caravana (6)@0,5x.webp" alt="Caravana Solidaria - Imagen 4"
+        loading="lazy" class="caravana-solidaria-4">
+      <img src="Media/Cartelera Caravana Solidaria/ph_caravana (9)@0,5x.webp" alt="Caravana Solidaria - Imagen 5"
+        loading="lazy" class="caravana-solidaria-5">
+    </div>
+
+    <!-- Right column: text -->
+    <div class="EventoCartelera-text">
+      <h2 class="titulo-estandar">Caravana Solidaria</h2>
+      <p class="descripcion-estandar">Una iniciativa especial que combina nuestra pasión por los autos con la
+        solidaridad. Organizamos una caravana solidaria que recorrió las rutas de Córdoba recaudando donaciones para
+        causas benéficas. Más de 60 autos participaron en esta noble causa, creando conciencia y ayudando a quienes más
+        lo necesitan, demostrando que la comunidad automotriz también tiene un corazón solidario.</p>
+    </div>
+  </div>
 
 
-<!-- ========================================
+
+
+
+
+  <!-- ========================================
    SECCIÓN EVENTOS ANTERIORES - SISTEMA ESTANDARIZADO
    ======================================== -->
 
-<section class="EventosAnteriores-section">
-  <h2 class="titulo-estandar">Eventos Anteriores</h2>
-  
-  <!-- Contenedor del carousel estandarizado -->
-  <div class="eventos-carousel-container" id="eventos-carousel-container">
-    <div class="eventos-carousel-slides" id="eventos-carousel-slides">
-      <!-- Los eventos se generarán dinámicamente aquí -->
-    </div>
-    
-    <!-- Sistema de bullets estandarizado -->
-    <div class="eventos-pagination" id="eventos-pagination">
-      <div class="eventos-bullets" id="eventos-bullets">
-        <!-- Los bullets se generarán dinámicamente aquí -->
+  <section class="EventosAnteriores-section">
+    <h2 class="titulo-estandar">Eventos Anteriores</h2>
+
+    <!-- Contenedor del carousel estandarizado -->
+    <div class="eventos-carousel-container" id="eventos-carousel-container">
+      <div class="eventos-carousel-slides" id="eventos-carousel-slides">
+        <!-- Los eventos se generarán dinámicamente aquí -->
+      </div>
+
+      <!-- Sistema de bullets estandarizado -->
+      <div class="eventos-pagination" id="eventos-pagination">
+        <div class="eventos-bullets" id="eventos-bullets">
+          <!-- Los bullets se generarán dinámicamente aquí -->
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- Patrocinadores -->
+  <!-- Patrocinadores -->
 
-<section class="Seccion_Patrocinadores">
-  <div class="Carrusel">
-    <div class="Caballos">
-      <img src="Media/Sponsors/Can am.webp" alt="Can-Am" />
-      <img src="Media/Sponsors/FF Perfomance.webp" alt="FF Performance" />
-      <img src="Media/Sponsors/Autocity logotipo-negro (2).webp" alt="Autocity" />
-      <img src="Media/Sponsors/Glabs.webp" alt="GLABS" />
-      <img src="Media/Sponsors/Michelin 2.png" alt="Michelin" />
-      <img src="Media/Sponsors/Todo Suspencion.webp" alt="Todo Suspensión" />
-      <img src="Media/Sponsors/Detail industry.webp" alt="Detail Industry" />
-      <img src="Media/Sponsors/HFI Perfomance.webp" alt="HFI Performance" />
-      <img src="Media/Sponsors/Astus.webp" alt="Astus" />
-      <img src="Media/Sponsors/El Hornito.webp" alt="El Hornito" />
-      <img src="Media/Sponsors/Sunset media.webp" alt="Sunset Media" />
-      <img src="Media/Sponsors/Monster.webp" alt="Monster" />
-      <img src="Media/Sponsors/Banquis.webp" alt="Banquis" />
-      <img src="Media/Sponsors/bolgan png.webp" alt="Bolgan" />
-      
+  <section class="Seccion_Patrocinadores">
+    <div class="Carrusel">
+      <div class="Caballos">
+        <img src="Media/Sponsors/Can am.webp" alt="Can-Am" />
+        <img src="Media/Sponsors/FF Perfomance.webp" alt="FF Performance" />
+        <img src="Media/Sponsors/Autocity logotipo-negro (2).webp" alt="Autocity" />
+        <img src="Media/Sponsors/Glabs.webp" alt="GLABS" />
+        <img src="Media/Sponsors/Michelin 2.png" alt="Michelin" />
+        <img src="Media/Sponsors/Todo Suspencion.webp" alt="Todo Suspensión" />
+        <img src="Media/Sponsors/Detail industry.webp" alt="Detail Industry" />
+        <img src="Media/Sponsors/HFI Perfomance.webp" alt="HFI Performance" />
+        <img src="Media/Sponsors/Astus.webp" alt="Astus" />
+        <img src="Media/Sponsors/El Hornito.webp" alt="El Hornito" />
+        <img src="Media/Sponsors/Sunset media.webp" alt="Sunset Media" />
+        <img src="Media/Sponsors/Monster.webp" alt="Monster" />
+        <img src="Media/Sponsors/Banquis.webp" alt="Banquis" />
+        <img src="Media/Sponsors/bolgan png.webp" alt="Bolgan" />
+
+      </div>
+      <div class="Caballos" aria-hidden="true">
+        <img src="Media/Sponsors/Can am.webp" alt="Can-Am" />
+        <img src="Media/Sponsors/FF Perfomance.webp" alt="FF Performance" />
+        <img src="Media/Sponsors/Autocity logotipo-negro (2).webp" alt="Autocity" />
+        <img src="Media/Sponsors/Glabs.webp" alt="GLABS" />
+        <img src="Media/Sponsors/Michelin 2.png" alt="Michelin" />
+        <img src="Media/Sponsors/Todo Suspencion.webp" alt="Todo Suspensión" />
+        <img src="Media/Sponsors/Detail industry.webp" alt="Detail Industry" />
+        <img src="Media/Sponsors/HFI Perfomance.webp" alt="HFI Performance" />
+        <img src="Media/Sponsors/Astus.webp" alt="Astus" />
+        <img src="Media/Sponsors/El Hornito.webp" alt="El Hornito" />
+        <img src="Media/Sponsors/Sunset media.webp" alt="Sunset Media" />
+        <img src="Media/Sponsors/Monster.webp" alt="Monster" />
+        <img src="Media/Sponsors/Banquis.webp" alt="Banquis" />
+        <img src="Media/Sponsors/bolgan png.webp" alt="Bolgan" />
+
+      </div>
     </div>
-    <div class="Caballos" aria-hidden="true">
-      <img src="Media/Sponsors/Can am.webp" alt="Can-Am" />
-      <img src="Media/Sponsors/FF Perfomance.webp" alt="FF Performance" />
-      <img src="Media/Sponsors/Autocity logotipo-negro (2).webp" alt="Autocity" />
-      <img src="Media/Sponsors/Glabs.webp" alt="GLABS" />
-      <img src="Media/Sponsors/Michelin 2.png" alt="Michelin" />
-      <img src="Media/Sponsors/Todo Suspencion.webp" alt="Todo Suspensión" />
-      <img src="Media/Sponsors/Detail industry.webp" alt="Detail Industry" />
-      <img src="Media/Sponsors/HFI Perfomance.webp" alt="HFI Performance" />
-      <img src="Media/Sponsors/Astus.webp" alt="Astus" />
-      <img src="Media/Sponsors/El Hornito.webp" alt="El Hornito" />
-      <img src="Media/Sponsors/Sunset media.webp" alt="Sunset Media" />
-      <img src="Media/Sponsors/Monster.webp" alt="Monster" />
-      <img src="Media/Sponsors/Banquis.webp" alt="Banquis" />
-      <img src="Media/Sponsors/bolgan png.webp" alt="Bolgan" />
-      
-    </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- Sección "About Me" Sunset Drive -->
+  <!-- Sección "About Me" Sunset Drive -->
   <section id="QuienesSomos" class="AboutMe-section">
     <div class="AboutMe-text">
       <h1 class="titulo-estandar">Sobre Nosotros</h1>
       <p class="descripcion-estandar">
-        Sunset Drive nació hace 3 años como una simple ruteada entre amigos. La gran repercusión y el entusiasmo del público nos impulsaron a llevar cada edición a un nuevo nivel, elevando la calidad y el profesionalismo de nuestros eventos, y creando experiencias inolvidables para cada participante.
+        Sunset Drive nació hace 3 años como una simple ruteada entre amigos. La gran repercusión y el entusiasmo del
+        público nos impulsaron a llevar cada edición a un nuevo nivel, elevando la calidad y el profesionalismo de
+        nuestros eventos, y creando experiencias inolvidables para cada participante.
       </p>
       <p class="descripcion-estandar">
-        Hasta hoy, hemos realizado +25 ediciones, reuniendo a +600 autos y +5.000 personas en distintos formatos y locaciones de todo el país.
+        Hasta hoy, hemos realizado +25 ediciones, reuniendo a +600 autos y +5.000 personas en distintos formatos y
+        locaciones de todo el país.
       </p>
       <p class="descripcion-estandar">
-        Contamos con un equipo de +20 colaboradores especializados en áreas como acreditaciones, ventas, marketing, diseño, publicidad, producción general, organización onsite, safety cars, media makers, entre otros.
+        Contamos con un equipo de +20 colaboradores especializados en áreas como acreditaciones, ventas, marketing,
+        diseño, publicidad, producción general, organización onsite, safety cars, media makers, entre otros.
       </p>
     </div>
 
@@ -262,48 +292,52 @@ SECCIÓN EVENTO CARTELERA
   </section>
 
 
-<!-- Sección de Preguntas Frecuentes -->
-<h2 class="preguntas-titulo titulo-estandar">Preguntas frecuentes</h2>
-<div class="Seccion_Preguntas">
-  <div class="Caja_Pregunta">
-    <div class="Pregunta">¿Los niños pagan entrada?</div>
-    <div class="Respuesta">No. Los menores de hasta 8 años inclusive no abonan entrada, presentando DNI en el ingreso.</div>
+  <!-- Sección de Preguntas Frecuentes -->
+  <h2 class="preguntas-titulo titulo-estandar">Preguntas frecuentes</h2>
+  <div class="Seccion_Preguntas">
+    <div class="Caja_Pregunta">
+      <div class="Pregunta">¿Los niños pagan entrada?</div>
+      <div class="Respuesta">No. Los menores de hasta 8 años inclusive no abonan entrada, presentando DNI en el ingreso.
+      </div>
+    </div>
+    <div class="Caja_Pregunta">
+      <div class="Pregunta">¿Puedo adquirir entrada en puerta?</div>
+      <div class="Respuesta">Las entradas están disponibles online hasta agotar stock. En caso de quedar cupos, se
+        podrán adquirir en puerta. Te recomendamos comprar con anticipación para no quedarte afuera.</div>
+    </div>
+    <div class="Caja_Pregunta">
+      <div class="Pregunta">¿Puedo ingresar con CUD (Certificado Único de Discapacidad)?</div>
+      <div class="Respuesta">Sí. Presentando el CUD vigente, podés ingresar sin costo junto a un acompañante.</div>
+    </div>
+    <div class="Caja_Pregunta">
+      <div class="Pregunta">¿Se puede ingresar con comida y bebida?</div>
+      <div class="Respuesta">No. Contamos con una variada oferta gastronómica a través de food trucks y barras, con
+        opciones para todos los gustos.</div>
+    </div>
+    <div class="Caja_Pregunta">
+      <div class="Pregunta">¿Hay estacionamiento para el público?</div>
+      <div class="Respuesta">Sí. Disponemos de sectores de estacionamiento general señalizados y organizados por nuestro
+        equipo.</div>
+    </div>
+    <div class="Caja_Pregunta">
+      <div class="Pregunta">¿Cómo participo con mi auto?</div>
+      <div class="Respuesta">Completá el formulario de inscripción. En caso de ser seleccionado, te contactaremos con
+        todos los detalles.</div>
+    </div>
+    <div class="Caja_Pregunta">
+      <div class="Pregunta">¿Cómo me contacto con la organización?</div>
+      <div class="Respuesta">Podés escribirnos a: info@sunsetdrive.com.ar</div>
+    </div>
   </div>
-  <div class="Caja_Pregunta">
-    <div class="Pregunta">¿Puedo adquirir entrada en puerta?</div>
-    <div class="Respuesta">Las entradas están disponibles online hasta agotar stock. En caso de quedar cupos, se podrán adquirir en puerta. Te recomendamos comprar con anticipación para no quedarte afuera.</div>
-  </div>
-  <div class="Caja_Pregunta">
-    <div class="Pregunta">¿Puedo ingresar con CUD (Certificado Único de Discapacidad)?</div>
-    <div class="Respuesta">Sí. Presentando el CUD vigente, podés ingresar sin costo junto a un acompañante.</div>
-  </div>
-  <div class="Caja_Pregunta">
-    <div class="Pregunta">¿Se puede ingresar con comida y bebida?</div>
-    <div class="Respuesta">No. Contamos con una variada oferta gastronómica a través de food trucks y barras, con opciones para todos los gustos.</div>
-  </div>
-  <div class="Caja_Pregunta">
-    <div class="Pregunta">¿Hay estacionamiento para el público?</div>
-    <div class="Respuesta">Sí. Disponemos de sectores de estacionamiento general señalizados y organizados por nuestro equipo.</div>
-  </div>
-  <div class="Caja_Pregunta">
-    <div class="Pregunta">¿Cómo participo con mi auto?</div>
-    <div class="Respuesta">Completá el formulario de inscripción. En caso de ser seleccionado, te contactaremos con todos los detalles.</div>
-  </div>
-  <div class="Caja_Pregunta">
-    <div class="Pregunta">¿Cómo me contacto con la organización?</div>
-    <div class="Respuesta">Podés escribirnos a: info@sunsetdrive.com.ar</div>
-  </div>
-</div>
 
 
 
 
 
-<div id="contacto"></div>
+  <div id="contacto"></div>
 
-<script src="footer.js"></script>
+  <script src="footer.js"></script>
 
 </body>
+
 </html>
-
-
