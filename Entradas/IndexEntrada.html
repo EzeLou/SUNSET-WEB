@@ -1,144 +1,339 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sunset Drive - Entradas</title>
-  <meta name="description" content="Comprar entradas para SunSet Drive - Eventos automotrices en Córdoba. Exposiciones de autos deportivos y clásicos, shows de drift, rally y acrobacias aéreas.">
-  <link rel="stylesheet" href="https://use.typekit.net/nle2uql.css">
-  <link rel="stylesheet" href="../style.css" >
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="../Media/favicon.ico" type="image/x-icon">
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#e38228">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="SunSet">
-  
-  <!-- Estilos para el iframe -->
-  <style>
-    /* Eliminar scroll de la página principal */
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden; /* Elimina el scroll de la página */
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunset Drive - Entradas</title>
+    <meta
+      name="description"
+      content="Comprar entradas para SunSet Drive - Eventos automotrices en Córdoba. Exposiciones de autos deportivos y clásicos, shows de drift, rally y acrobacias aéreas."
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/nle2uql.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="Media/favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#e38228" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="SunSet" />
 
-    .container {
-      margin: 0 auto;
-    }
+    <!-- Estilos para el iframe -->
+    <style>
+      /* Eliminar scroll de la página principal */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden; /* Elimina el scroll de la página */
+        background-color: #212121; /* Fondo oscuro consistente con theme.palette.grey[900] */
+      }
 
-    .iframe-container {
-      position: fixed;
-      top: 70px; /* Altura del navbar en escritorio */
-      left: 0;
-      right: 0;
-      bottom: 0;
-      overflow: hidden;
-    }
+      .container {
+        margin: 0 auto;
+      }
 
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      overflow: hidden; /* Elimina scroll del iframe */
-    }
-
-    /* Media query para móviles */
-    @media (max-width: 768px) {
       .iframe-container {
-        top: 58px; /* Altura del navbar en móvil */
+        position: fixed;
+        top: 70px; /* Altura del navbar en escritorio */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
       }
-    }
 
-    /* Estilos adicionales para mejorar el manejo táctil en móvil */
-    @media (max-width: 768px) {
       iframe {
-        -webkit-overflow-scrolling: touch; /* Mejora el scroll táctil en iOS */
-        touch-action: manipulation; /* Optimiza el manejo táctil */
+        width: 100%;
+        height: 100%;
+        border: none;
+        overflow: hidden; /* Elimina scroll del iframe */
       }
-    }
-  </style>
-</head>
 
-<body>
+      /* Media query para móviles */
+      @media (max-width: 768px) {
+        .iframe-container {
+          top: 58px; /* Altura del navbar en móvil */
+        }
+      }
 
-<!-- ========================================
+      /* Estilos adicionales para mejorar el manejo táctil en móvil */
+      @media (max-width: 768px) {
+        iframe {
+          -webkit-overflow-scrolling: touch; /* Mejora el scroll táctil en iOS */
+          touch-action: manipulation; /* Optimiza el manejo táctil */
+        }
+      }
+
+      /* Loading inicial */
+      .initial-loading {
+        position: fixed;
+        top: 70px; /* Altura del navbar en desktop */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #212121;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        transition: opacity 0.3s ease-out;
+        gap: 24px;
+      }
+
+      /* Ajuste para móvil */
+      @media (max-width: 768px) {
+        .initial-loading {
+          top: 58px; /* Altura del navbar en móvil */
+        }
+      }
+
+      .initial-loading.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* Barra de progreso */
+      .loading-progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: rgba(1, 234, 237, 0.1);
+        overflow: hidden;
+      }
+
+      .loading-progress::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, #01eaed, #01e696);
+        animation: loading-progress 2s infinite;
+      }
+
+      @keyframes loading-progress {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      /* Spinner */
+      .loading-spinner {
+        width: 35px;
+        height: 35px;
+        border: 3px solid rgba(1, 234, 237, 0.2);
+        border-top: 3px solid #01eaed;
+        border-radius: 50%;
+        animation: loading-spin 1s linear infinite;
+      }
+
+      .loading-text {
+        font-size: 16px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.9);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        margin-top: 8px;
+      }
+
+      @keyframes loading-spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Loading inicial -->
+    <div id="initialLoading" class="initial-loading">
+      <div class="loading-progress"></div>
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Cargando entradas...</div>
+    </div>
+
+    <!-- ========================================
 NAVIGATION BAR
 ======================================== -->
-<nav class="navbar" style="background-color: #000000; position: fixed; top: 0; width: 100%; z-index: 1000;">
-  <div class="nav-container">
-    <!-- Logo siempre visible -->
-    <div class="nav-center">
-      <img src="../Media/LogoSunSet-512x512.png" alt="SunSet Logo" class="nav-logo-img" style="height: 110px; width: auto; opacity: 1 !important; visibility: visible !important; display: block;">
-    </div>
-    
-    <!-- Menú desktop -->
-    <div class="nav-menu desktop-menu">
-      <div class="nav-left">
-        <a href="../index.html" class="nav-link" style="color: white;">Inicio</a>
-        <a href="../index.html#proximo-evento" class="nav-link" style="color: white;">Próximo Evento</a>
-        <a href="../index.html#Eventos" class="nav-link" style="color: white;">Eventos</a>
+    <nav
+      class="navbar"
+      style="
+        background-color: #000000;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      "
+    >
+      <div class="nav-container">
+        <!-- Logo siempre visible -->
+        <div class="nav-center">
+          <img
+            src="../Media/LogoSunSet-512x512.png"
+            alt="SunSet Logo"
+            class="nav-logo-img"
+            style="
+              height: 110px;
+              width: auto;
+              opacity: 1 !important;
+              visibility: visible !important;
+              display: block;
+            "
+          />
+        </div>
+
+        <!-- Menú desktop -->
+        <div class="nav-menu desktop-menu">
+          <div class="nav-left">
+            <a href="../index.html" class="nav-link" style="color: white"
+              >Inicio</a
+            >
+            <a
+              href="../index.html#proximo-evento"
+              class="nav-link"
+              style="color: white"
+              >Próximo Evento</a
+            >
+            <a
+              href="../index.html#Eventos"
+              class="nav-link"
+              style="color: white"
+              >Eventos</a
+            >
+          </div>
+          <div class="nav-right">
+            <a
+              href="../index.html#QuienesSomos"
+              class="nav-link"
+              style="color: white"
+              >Sobre Nosotros</a
+            >
+            <a
+              href="../index.html#contacto"
+              class="nav-link"
+              style="color: white"
+              >Contacto</a
+            >
+          </div>
+        </div>
+
+        <!-- Botón hamburguesa para móvil -->
+        <div class="nav-hamburger mobile-menu">
+          <button class="hamburger-btn" id="hamburger-btn" style="color: white">
+            <span class="hamburger-line" style="background-color: white"></span>
+            <span class="hamburger-line" style="background-color: white"></span>
+            <span class="hamburger-line" style="background-color: white"></span>
+          </button>
+        </div>
       </div>
-      <div class="nav-right">
-        <a href="../index.html#QuienesSomos" class="nav-link" style="color: white;">Sobre Nosotros</a>
-        <a href="../index.html#contacto" class="nav-link" style="color: white;">Contacto</a>
+
+      <!-- Menú móvil desplegable -->
+      <div
+        class="mobile-nav-menu"
+        id="mobile-nav-menu"
+        style="background-color: #000000"
+      >
+        <a href="../index.html" class="mobile-nav-link" style="color: white"
+          >Inicio</a
+        >
+        <a
+          href="../index.html#proximo-evento"
+          class="mobile-nav-link"
+          style="color: white"
+          >Próximo Evento</a
+        >
+        <a
+          href="../index.html#Eventos"
+          class="mobile-nav-link"
+          style="color: white"
+          >Eventos</a
+        >
+        <a
+          href="../index.html#QuienesSomos"
+          class="mobile-nav-link"
+          style="color: white"
+          >Sobre Nosotros</a
+        >
+        <a
+          href="../index.html#contacto"
+          class="mobile-nav-link"
+          style="color: white"
+          >Contacto</a
+        >
       </div>
+    </nav>
+
+    <div class="iframe-container">
+      <iframe id="ticketsIframe" src="about:blank"></iframe>
     </div>
-    
-    <!-- Botón hamburguesa para móvil -->
-    <div class="nav-hamburger mobile-menu">
-      <button class="hamburger-btn" id="hamburger-btn" style="color: white;">
-        <span class="hamburger-line" style="background-color: white;"></span>
-        <span class="hamburger-line" style="background-color: white;"></span>
-        <span class="hamburger-line" style="background-color: white;"></span>
-      </button>
-    </div>
-  </div>
-  
-  <!-- Menú móvil desplegable -->
-  <div class="mobile-nav-menu" id="mobile-nav-menu" style="background-color: #000000;">
-    <a href="../index.html" class="mobile-nav-link" style="color: white;">Inicio</a>
-    <a href="../index.html#proximo-evento" class="mobile-nav-link" style="color: white;">Próximo Evento</a>
-    <a href="../index.html#Eventos" class="mobile-nav-link" style="color: white;">Eventos</a>
-    <a href="../index.html#QuienesSomos" class="mobile-nav-link" style="color: white;">Sobre Nosotros</a>
-    <a href="../index.html#contacto" class="mobile-nav-link" style="color: white;">Contacto</a>
-  </div>
-</nav>
 
-  <div class="iframe-container">
-    <iframe id="ticketsIframe" src="about:blank"></iframe>
-  </div>
+    <!-- Scripts -->
+    <script src="../script.js"></script>
 
-<!-- Scripts -->
-<script src="../script.js"></script>
+    <script>
+      function hideInitialLoading() {
+        const initialLoading = document.getElementById("initialLoading");
+        if (initialLoading) {
+          initialLoading.classList.add("hidden");
+          // Remover el elemento después de la transición
+          setTimeout(() => {
+            if (initialLoading.parentNode) {
+              initialLoading.parentNode.removeChild(initialLoading);
+            }
+          }, 300);
+        }
+      }
 
-<script>
-  function loadIframe() {
-    const baseUrl = "https://libretickets.com";
-    const companyTag = "sunset_drive_cba";
-    const companyName = "Sunset Drive"; // Nombre legible de la empresa
+      function loadIframe() {
+        const baseUrl = "https://libretickets.com";
+        const companyTag = "sunset_drive_cba";
+        const companyName = "Sunset Drive"; // Nombre legible de la empresa
 
-    if (!baseUrl || !companyTag) {
-      alert("Por favor completa todos los campos");
-      return;
-    }
+        if (!baseUrl || !companyTag) {
+          alert("Por favor completa todos los campos");
+          hideInitialLoading();
+          return;
+        }
 
-    const parentUrl = encodeURIComponent(window.location.href);
-    const encodedCompanyName = encodeURIComponent(companyName);
-    const url = `${baseUrl}/${companyTag}?iframe=true&parentUrl=${parentUrl}&companyName=${encodedCompanyName}`;
-    const iframe = document.getElementById("ticketsIframe");
+        const parentUrl = encodeURIComponent(window.location.href);
+        const encodedCompanyName = encodeURIComponent(companyName);
+        const url = `${baseUrl}/${companyTag}?iframe=true&parentUrl=${parentUrl}&companyName=${encodedCompanyName}`;
+        const iframe = document.getElementById("ticketsIframe");
 
-    iframe.src = url;
-    console.log("Cargando iframe con URL:", url);
-  }
+        // Ocultar el loading cuando el iframe cargue
+        iframe.onload = function () {
+          setTimeout(() => {
+            hideInitialLoading();
+          }, 500); // Pequeño delay para una transición más suave
+        };
 
-  // Cargar automáticamente al iniciar
-  window.onload = function () {
-    loadIframe();
-  };
-</script>
+        // También ocultar el loading si hay un error
+        iframe.onerror = function () {
+          hideInitialLoading();
+        };
 
-</body>
+        iframe.src = url;
+        console.log("Cargando iframe con URL:", url);
+      }
+
+      // Cargar automáticamente al iniciar
+      window.onload = function () {
+        loadIframe();
+      };
+    </script>
+  </body>
 </html>
