@@ -550,11 +550,11 @@ const eventosAnterioresData = [
   {
     id: "sunset-express",
     title: "SunSet Drive Express",
-    description: "Esta edición privada comenzó con un desayuno exclusivo en Autocity, para luego iniciar la caravana por las mejores rutas serranas de Córdoba hasta Potrerillo Pueblo de Montaña. Disfrutamos de un almuerzo servido a la mesa, una exposición de los vehículos participantes, stands de marcas como Glabs, Detail Industry y HFI, además de sorteos y una premiación especial del concurso de elegancia.",
+    description: "Esta edición privada comenzó con un desayuno exclusivo en Autocity y, tras las indicaciones de seguridad, iniciamos la caravana por las mejores rutas serranas de Córdoba. Realizamos una parada intermedia en Copina antes de continuar hacia Potrerillo Pueblo de Montaña. Allí disfrutamos de un almuerzo servido a la mesa, una exposición de los vehículos participantes, y stands de marcas como Glabs, Detail Industry y HFI, además de sorteos y una premiación especial del concurso de elegancia. La edición más privada de Sunset Drive, pensada exclusivamente para los dueños de los autos y los apasionados por la experiencia Sunset Drive.",
     stats: [
-      { number: "60+", label: "Autos" },
-      { number: "150+", label: "Personas" },
-      { number: "8h", label: "Duración" }
+      { number: "+60", label: "Autos" },
+      { number: "+150", label: "Personas" },
+      //{ number: "8h", label: "Duración" }
     ],
     images: {
       center: "Media/Cartelera 1/Panoramica cierras.webp",
@@ -567,12 +567,12 @@ const eventosAnterioresData = [
   {
     id: "sunset-drive-6ta",
     title: "Sunset Drive - 6ta Edición",
-    description: "El pasado 14 de diciembre de 2024 celebramos una edición inolvidable de Sunset Drive. Iniciamos la caravana en Polo 52, Córdoba, rumbo a Potrero de Garay. Allí, participantes y público general disfrutaron de una exposición de más de 100 autos, show de acrobacias aéreas sobre el lago, stands de reconocidas marcas como Michelin Neumáticos Belgrano, Can-Am, Todo Suspensión, FF Performance, Hudson Custom Garage, entre otras, además de catering, barra de bebidas y música en vivo al atardecer, en una ubicación inigualable.",
+    description: "El pasado 14 de diciembre de 2024 celebramos una edición inolvidable de Sunset Drive para cerrar el año. La caravana partió desde Polo 52, Córdoba, rumbo a Potrero de Garay, donde más de 100 autos deportivos, clásicos y exóticos se lucieron en una expo única junto al lago, coronada con un espectacular show de acrobacias aéreas. La jornada incluyó stands de marcas destacadas, gastronomía, barra de tragos, DJs invitados y cobertura fotográfica en ruta para los participantes. Una experiencia que combinó pasión por los autos, paisajes y entretenimiento, consolidando el espíritu de Sunset Drive.",
     videoUrl: "https://youtu.be/M5jQ1I8E7U8?si=T-OVR4dpZtXPnf31",
     stats: [
-      { number: "100+", label: "Autos" },
-      { number: "500+", label: "Personas" },
-      { number: "10h", label: "Duración" }
+      { number: "+100", label: "Autos" },
+      { number: "+500", label: "Personas" },
+      //{ number: "10h", label: "Duración" }
     ],
     images: {
       center: "Media/Cartelera 2/Avioneta.webp",
