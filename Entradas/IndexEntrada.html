@@ -302,7 +302,7 @@ NAVIGATION BAR
         const baseUrl = "https://libretickets.com";
         const companyTag = "sunset_drive_cba";
         const companyName = "Sunset Drive"; // Nombre legible de la empresa
-
+        const companyLogoUrl = "https://firebasestorage.googleapis.com/v0/b/ventapp-ed173.appspot.com/o/ventaap%2Fposts%2Fimg%2Fd61f8388-5e54-4830-a629-7cb1bc006c68?alt=media&token=7c945dc1-1bae-4624-889b-3afa9febfc90"; // URL del logo de la empresa
         if (!baseUrl || !companyTag) {
           alert("Por favor completa todos los campos");
           hideInitialLoading();
@@ -311,7 +311,8 @@ NAVIGATION BAR
 
         const parentUrl = encodeURIComponent(window.location.href);
         const encodedCompanyName = encodeURIComponent(companyName);
-        const url = `${baseUrl}/${companyTag}?iframe=true&parentUrl=${parentUrl}&companyName=${encodedCompanyName}`;
+        const encodedCompanyLogoUrl = encodeURIComponent(companyLogoUrl);
+        const url = `${baseUrl}/${companyTag}?iframe=true&parentUrl=${parentUrl}&companyName=${encodedCompanyName}&companyLogoUrl=${encodedCompanyLogoUrl}`;
         const iframe = document.getElementById("ticketsIframe");
 
         // Ocultar el loading cuando el iframe cargue
