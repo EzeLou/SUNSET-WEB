@@ -67,7 +67,7 @@ function createFooterWithRelativePaths() {
             <h3 class="text-[#0086e8] font-semibold mb-3">Contacto</h3>
             <ul class="space-y-2">
               <li><a href="mailto:info@sunsetdrive.com.ar" class="hover:text-[#ff0f0e] cursor-pointer">info@sunsetdrive.com.ar</a></li>
-              <li><a href="https://wa.me/5493513702074" target="_blank" class="hover:text-[#ff0f0e] cursor-pointer">Cel: +54 9 351 370-2074</a></li>
+              <li><a href="https://wa.me/5493516200353" target="_blank" class="hover:text-[#ff0f0e] cursor-pointer">Cel: +54 9 351 620-0353</a></li>
               <li><a href="https://www.instagram.com/sunset_drive_cba/" target="_blank" class="hover:text-[#ff0f0e] cursor-pointer">Instagram</a></li>
             </ul>
           </div>
