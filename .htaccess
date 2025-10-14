@@ -1,31 +1,35 @@
 # Activar motor de reescritura
 RewriteEngine On
 
-############################
-# 1️⃣ Redirección /tyc-sorteo
-############################
+##########################################
+# 🔹 1. Redirección limpia para /tyc-sorteo
+##########################################
 
-# Si el usuario escribe /tyc-sorteo/indexSorteo.html, redirigir a /tyc-sorteo
+# Si el usuario escribe /tyc-sorteo/indexSorteo.html → redirigir a /tyc-sorteo
 RewriteCond %{THE_REQUEST} /tyc-sorteo/indexSorteo\.html [NC]
 RewriteRule ^tyc-sorteo/indexSorteo\.html$ /tyc-sorteo [R=301,L]
 
-# Definir el archivo por defecto dentro de /tyc-sorteo
+# Definir archivo por defecto dentro de /tyc-sorteo
 DirectoryIndex indexSorteo.html index.html index.php
 
-############################
-# 2️⃣ Redirección /entradas
-############################
+##########################################
+# 🔹 2. Redirección limpia para /entradas (sin importar mayúsculas)
+##########################################
 
-# Si el usuario escribe /Entradas/IndexEntrada.html o /entradas/indexentrada.html (independiente de mayúsculas)
+# Si el usuario escribe /entradas/indexentrada.html o /Entradas/IndexEntrada.html → redirigir a /entradas
 RewriteCond %{THE_REQUEST} /[eE]ntradas/[iI]ndex[eE]ntrada\.html [NC]
 RewriteRule ^[eE]ntradas/[iI]ndex[eE]ntrada\.html$ /entradas [R=301,L]
 
-# Definir el archivo por defecto dentro de /Entradas
+# Redirigir cualquier versión con mayúsculas del directorio /Entradas a /entradas
+RewriteCond %{REQUEST_URI} ^/Entradas/?$ [NC]
+RewriteRule ^.*$ /entradas [R=301,L]
+
+# Definir archivo por defecto dentro de /Entradas (sin importar mayúsculas)
 DirectoryIndex IndexEntrada.html index.html index.php
 
-############################
-# 🔒 Opciones adicionales
-############################
+##########################################
+# 🔒 Opciones generales
+##########################################
 
 # Evitar listado de archivos
 Options -Indexes
@@ -42,3 +46,11 @@ AddDefaultCharset UTF-8
   ExpiresByType text/css "access plus 7 days"
   ExpiresByType application/javascript "access plus 7 days"
 </IfModule>
+
+##########################################
+# 🌐 (Opcional) Forzar HTTPS y sin www
+##########################################
+# Descomentar las siguientes líneas si querés redirigir todo a https://sunsetdrive.com.ar
+#RewriteCond %{HTTPS} !=on [OR]
+#RewriteCond %{HTTP_HOST} ^www\. [NC]
+#RewriteRule ^(.*)$ https://sunsetdrive.com.ar/$1 [R=301,L]
