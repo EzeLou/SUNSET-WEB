@@ -1,0 +1,44 @@
+# Activar motor de reescritura
+RewriteEngine On
+
+############################
+# 1️⃣ Redirección /tyc-sorteo
+############################
+
+# Si el usuario escribe /tyc-sorteo/indexSorteo.html, redirigir a /tyc-sorteo
+RewriteCond %{THE_REQUEST} /tyc-sorteo/indexSorteo\.html [NC]
+RewriteRule ^tyc-sorteo/indexSorteo\.html$ /tyc-sorteo [R=301,L]
+
+# Definir el archivo por defecto dentro de /tyc-sorteo
+DirectoryIndex indexSorteo.html index.html index.php
+
+############################
+# 2️⃣ Redirección /entradas
+############################
+
+# Si el usuario escribe /Entradas/IndexEntrada.html o /entradas/indexentrada.html (independiente de mayúsculas)
+RewriteCond %{THE_REQUEST} /[eE]ntradas/[iI]ndex[eE]ntrada\.html [NC]
+RewriteRule ^[eE]ntradas/[iI]ndex[eE]ntrada\.html$ /entradas [R=301,L]
+
+# Definir el archivo por defecto dentro de /Entradas
+DirectoryIndex IndexEntrada.html index.html index.php
+
+############################
+# 🔒 Opciones adicionales
+############################
+
+# Evitar listado de archivos
+Options -Indexes
+
+# Forzar codificación UTF-8
+AddDefaultCharset UTF-8
+
+# Control básico de caché del navegador (7 días)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 7 days"
+  ExpiresByType image/jpeg "access plus 7 days"
+  ExpiresByType image/png "access plus 7 days"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+</IfModule>
