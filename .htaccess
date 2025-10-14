@@ -12,20 +12,6 @@ RewriteRule ^tyc-sorteo/indexSorteo\.html$ /tyc-sorteo [R=301,L]
 # Definir archivo por defecto dentro de /tyc-sorteo
 DirectoryIndex indexSorteo.html index.html index.php
 
-##########################################
-# 🔹 2. Redirección limpia para /entradas (sin importar mayúsculas)
-##########################################
-
-# Si el usuario escribe /entradas/indexentrada.html o /Entradas/IndexEntrada.html → redirigir a /entradas
-RewriteCond %{THE_REQUEST} /[eE]ntradas/[iI]ndex[eE]ntrada\.html [NC]
-RewriteRule ^[eE]ntradas/[iI]ndex[eE]ntrada\.html$ /entradas [R=301,L]
-
-# Redirigir cualquier versión con mayúsculas del directorio /Entradas a /entradas
-RewriteCond %{REQUEST_URI} ^/Entradas/?$ [NC]
-RewriteRule ^.*$ /entradas [R=301,L]
-
-# Definir archivo por defecto dentro de /Entradas (sin importar mayúsculas)
-DirectoryIndex IndexEntrada.html index.html index.php
 
 ##########################################
 # 🔒 Opciones generales
