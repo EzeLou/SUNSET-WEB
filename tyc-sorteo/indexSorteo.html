@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunset Drive - TyC Sorteo</title>
+  <meta name="description"
+    content="Comprar entradas para SunSet Drive - Eventos automotrices en Córdoba. Exposiciones de autos deportivos y clásicos, shows de drift, rally y acrobacias aéreas." />
+  <link rel="stylesheet" href="https://use.typekit.net/nle2uql.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/Media/favicon.ico" type="image/x-icon" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#e38228" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="SunSet" />
+
+</head>
+
+
+
+<body>
+  <!-- Loading inicial -->
+  <div id="initialLoading" class="initial-loading">
+    <div class="loading-progress"></div>
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Cargando entradas...</div>
+  </div>
+
+  <!-- ========================================
+NAVIGATION BAR
+======================================== -->
+  <nav class="navbar" style="
+        background-color: #000000;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      ">
+    <div class="nav-container">
+      <!-- Logo siempre visible -->
+      <div class="nav-center">
+        <img src="../Media/LogoSunSet-512x512.png" alt="SunSet Logo" class="nav-logo-img" style="
+              height: 110px;
+              width: auto;
+              opacity: 1 !important;
+              visibility: visible !important;
+              display: block;
+            " />
+      </div>
+
+      <!-- Menú desktop -->
+      <div class="nav-menu desktop-menu">
+        <div class="nav-left">
+          <a href="../index.html" class="nav-link" style="color: white">Inicio</a>
+          <a href="../index.html#proximo-evento" class="nav-link" style="color: white">Próximo Evento</a>
+          <a href="../index.html#Eventos" class="nav-link" style="color: white">Eventos</a>
+        </div>
+        <div class="nav-right">
+          <a href="../index.html#QuienesSomos" class="nav-link" style="color: white">Sobre Nosotros</a>
+          <a href="../index.html#contacto" class="nav-link" style="color: white">Contacto</a>
+        </div>
+      </div>
+
+      <!-- Botón hamburguesa para móvil -->
+      <div class="nav-hamburger mobile-menu">
+        <button class="hamburger-btn" id="hamburger-btn" style="color: white">
+          <span class="hamburger-line" style="background-color: white"></span>
+          <span class="hamburger-line" style="background-color: white"></span>
+          <span class="hamburger-line" style="background-color: white"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil desplegable -->
+    <div class="mobile-nav-menu" id="mobile-nav-menu" style="background-color: #000000">
+      <a href="../index.html" class="mobile-nav-link" style="color: white">Inicio</a>
+      <a href="../index.html#proximo-evento" class="mobile-nav-link" style="color: white">Próximo Evento</a>
+      <a href="../index.html#Eventos" class="mobile-nav-link" style="color: white">Eventos</a>
+      <a href="../index.html#QuienesSomos" class="mobile-nav-link" style="color: white">Sobre Nosotros</a>
+      <a href="../index.html#contacto" class="mobile-nav-link" style="color: white">Contacto</a>
+    </div>
+  </nav>
+
+  <br>
+
+  <div class="EventoCartelera-text">
+    <h2 class="titulo-estandar">TERMINOS Y CONDICIONES – SORTEO “SUNSET x LOSCO”</h2>
+    <p class="descripcion-estandar">
+      1. ORGANIZADOR
+      El presente sorteo denominado “SUNSET x LOSCO” (en adelante, el Sorteo) es organizado por SUNSET DRIVE, con
+      domicilio en Paraguay 120, Oficina 11, Córdoba Capital, Argentina, (en adelante, el Organizador), con la
+      colaboración de LOSCO BAR, con domicilio en Fructuoso Rivera 216, Córdoba Capital.
+      Para cualquier consulta o reclamo, los interesados podrán comunicarse a info@sunsetdrive.com.ar.
+
+    </p>
+    <p class="descripcion-estandar">
+      2. VIGENCIA
+      El Sorteo comenzará el día de su publicación oficial en las redes sociales de los organizadores y finalizará el 22
+      de octubre de 2025 a las 23:59 hs.
+      Los ganadores serán anunciados el jueves 23 de octubre de 2025 en las historias de las cuentas oficiales
+      @sunset_drive_cba y @losco.bar en Instagram.
+
+    </p>
+    <p class="descripcion-estandar">
+      3. PARTICIPACIÓN
+      La participación en este Sorteo es gratuita y sin obligación de compra.
+      Podrán participar todas las personas mayores de 18 años, residentes en la República Argentina, que cumplan con las
+      condiciones aquí establecidas.
+      Se aceptará la participación de personas que residan fuera de Córdoba, siempre que puedan hacerse presentes para
+      disfrutar de la cena en Losco Bar (Córdoba Capital) y del evento Sunset Motor Show en Colonia Caroya.
+
+    </p>
+    <p class="descripcion-estandar">
+      4. MECÁNICA DE PARTICIPACIÓN
+      Para participar, los interesados deberán:
+      1. Seguir en Instagram a @sunset_drive_cba y @losco.bar.
+      2. Dar “me gusta” a la publicación del sorteo.
+      3. Mencionar a otro usuario de Instagram en los comentarios de la publicación (cada comentario constituye una
+      chance adicional).
+      Los comentarios deberán respetar las normas de respeto y convivencia. No se admitirán contenidos ofensivos,
+      inapropiados o que vulneren derechos de terceros. En caso de detectarse, serán eliminados y el participante
+      descalificado.
+
+    </p>
+    <p class="descripcion-estandar">
+      5. PREMIOS
+      Se otorgarán dos (2) premios, cada uno destinado a un (1) ganador titular con un (1) acompañante.
+      Cada premio incluye:
+      • 🍔 Una cena para dos personas en Losco Bar, compuesta por una hamburguesa a elección (entre dos opciones
+      disponibles) y una bebida (agua, gaseosa o cerveza – pinta o media pinta– por persona).
+      • 🎟️ Dos entradas generales al Sunset Motor Show – Colonia Caroya (16 de noviembre de 2025).
+      El canje de la cena podrá realizarse dentro de los 30 días corridos posteriores al sorteo, los días miércoles,
+      jueves o viernes de noviembre de 2025, en Losco Bar.
+      El premio no incluye traslados, alojamiento ni otros gastos.
+      Los premios son intransferibles, no canjeables por dinero ni por otros bienes.
+
+    </p>
+    <p class="descripcion-estandar">
+      6. SELECCIÓN DE GANADORES
+      Los ganadores se seleccionarán de forma aleatoria entre todos los participantes que cumplan con las condiciones
+      establecidas.
+      Se sortearán 2 ganadores titulares y 4 suplentes.
+      En caso de que un ganador no responda al mensaje directo de contacto dentro de las 24 horas posteriores al
+      anuncio, el premio pasará automáticamente al primer suplente disponible, y así sucesivamente.
+
+    </p>
+    <p class="descripcion-estandar">
+      7. PUBLICACIÓN Y ENTREGA DE PREMIOS
+      Los ganadores serán anunciados el 23 de octubre de 2025 a través de las historias de Instagram de
+      @sunset_drive_cba y @losco.bar.
+      El contacto con los ganadores se realizará mediante mensaje directo en Instagram, desde las cuentas oficiales
+      mencionadas.
+      Para validar el premio, los ganadores deberán confirmar su identidad (nombre completo y usuario de Instagram) y
+      aceptar las condiciones de canje.
+
+    </p>
+    <p class="descripcion-estandar">
+      8. RESTRICCIONES
+      No podrán participar del sorteo los empleados, colaboradores, proveedores, familiares directos (hasta segundo
+      grado) o personas vinculadas laboral o comercialmente con los organizadores o sus socios.
+
+    </p>
+    <p class="descripcion-estandar">
+      9. VALIDEZ DE LAS PARTICIPACIONES
+      Los organizadores se reservan el derecho de invalidar participaciones que:
+      • Contengan información falsa o incompleta.
+      • No cumplan con la mecánica establecida.
+      • Utilicen medios automatizados o fraudulentos.
+      • Incluyan contenido ofensivo, discriminatorio o inapropiado.
+
+    </p>
+    <p class="descripcion-estandar">
+      10. DERECHOS DE IMAGEN
+      Los participantes, por el solo hecho de participar, autorizan expresamente a los organizadores a difundir su
+      nombre, usuario de Instagram y fotografía de perfil con fines promocionales y de comunicación vinculados al
+      sorteo, sin que ello implique derecho a compensación alguna.
+
+    </p>
+    <p class="descripcion-estandar">
+      11. PROTECCIÓN DE DATOS PERSONALES
+      Los datos personales suministrados serán tratados conforme a la Ley N° 25.326 de Protección de Datos Personales.
+      Serán utilizados exclusivamente para la gestión del sorteo y comunicación con los ganadores.
+      El organizador no compartirá ni cederá los datos a terceros, salvo lo necesario para la entrega del premio.
+      Los participantes podrán ejercer sus derechos de acceso, rectificación y supresión de datos enviando un correo
+      electrónico a info@sunsetdrive.com.ar.
+
+    </p>
+    <p class="descripcion-estandar">
+      12. LEY APLICABLE Y JURISDICCIÓN
+      El presente sorteo se regirá por las leyes de la República Argentina.
+      Cualquier controversia derivada de su interpretación o cumplimiento será sometida a la jurisdicción de los
+      tribunales ordinarios de la Ciudad de Córdoba, con renuncia expresa a cualquier otro fuero o jurisdicción.
+
+    </p>
+    <p class="descripcion-estandar">
+      13. ACEPTACIÓN DE LAS BASES
+      La participación en el sorteo implica el conocimiento y aceptación total de estas Bases y Condiciones.
+      Cualquier situación no prevista será resuelta exclusivamente por el Organizador, cuyas decisiones serán
+      inapelables.
+
+    </p>
+  </div>
+
+
+  <script src="footer.js"></script>
+
+</body>
+
+</html>
