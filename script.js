@@ -20,29 +20,56 @@ function throttle(func, limit) {
 // LOGO HEADER ANIMATION
 // ========================================
 
-// Optimizar scroll listener para el logo
-window.addEventListener('scroll', throttle(function () {
+// Función para actualizar la visibilidad del logo del navbar
+function updateNavbarLogoVisibility() {
   const logoContainer = document.getElementById('logo-container');
   const navbarLogo = document.querySelector('.nav-logo-img');
   const navbar = document.querySelector('.navbar');
+  
+  if (!logoContainer || !navbarLogo || !navbar) return;
 
   // Obtener la posición del logo principal
   const logoRect = logoContainer.getBoundingClientRect();
   const logoBottom = logoRect.bottom; // Distancia desde el top de la ventana hasta el bottom del logo
+  const isMobile = window.innerWidth <= 768;
 
   // Cambio de logo en el header - cuando el logo sale de la pantalla
   if (logoBottom < 0) { /* Cuando el logo está completamente fuera de la pantalla */
     logoContainer.classList.add('shrink');
-    navbarLogo.style.opacity = '1';
-    navbarLogo.style.visibility = 'visible';
+    if (isMobile) {
+      // En móviles usamos la clase para mejor control
+      navbarLogo.classList.add('visible');
+    } else {
+      navbarLogo.style.opacity = '1';
+      navbarLogo.style.visibility = 'visible';
+    }
     navbar.style.background = 'rgba(0, 0, 0, 0.95)';
   } else {
     logoContainer.classList.remove('shrink');
-    navbarLogo.style.opacity = '0';
-    navbarLogo.style.visibility = 'hidden';
+    if (isMobile) {
+      // En móviles usamos la clase para mejor control
+      navbarLogo.classList.remove('visible');
+    } else {
+      navbarLogo.style.opacity = '0';
+      navbarLogo.style.visibility = 'hidden';
+    }
     navbar.style.background = 'rgba(0, 0, 0, 0.1)';
   }
-}, 16)); // limita cada 16ms para que no se ejecute demasiadas veces la animación del logo
+}
+
+// Ejecutar inmediatamente al cargar para establecer el estado correcto
+// Esto evita que se vean ambos logos en la carga inicial en móviles
+document.addEventListener('DOMContentLoaded', function() {
+  updateNavbarLogoVisibility();
+});
+
+// También ejecutar cuando la página está completamente cargada (por si acaso)
+window.addEventListener('load', function() {
+  updateNavbarLogoVisibility();
+});
+
+// Optimizar scroll listener para el logo
+window.addEventListener('scroll', throttle(updateNavbarLogoVisibility, 16)); // limita cada 16ms para que no se ejecute demasiadas veces la animación del logo
 
 
 

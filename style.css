@@ -150,10 +150,17 @@ NAVIGATION BAR
   
   .nav-logo-img {
     height: 100px;
-    opacity: 1;
-    visibility: visible;
+    /* El logo empieza oculto y JS lo muestra cuando corresponde */
+    opacity: 0;
+    visibility: hidden;
     position: relative;
     top: 0px;
+  }
+  
+  /* Clase para mostrar el logo cuando el usuario hace scroll */
+  .nav-logo-img.visible {
+    opacity: 1;
+    visibility: visible;
   }
   
   /* En móviles, el logo debe estar a la izquierda */
@@ -277,8 +284,7 @@ NAVIGATION BAR
   
   .nav-logo-img {
     height: 55px;
-    opacity: 1;
-    visibility: visible;
+    /* Mantener oculto por defecto, JS controla visibilidad */
     transition: opacity 0.3s ease, visibility 0.3s ease;
   }
   
