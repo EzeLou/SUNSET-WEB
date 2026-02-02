@@ -627,6 +627,25 @@ header.video-header video {
   color: white;
 }
 
+/* Estilo YouTube para botones en la cartelera de eventos */
+.EventoCartelera-button.youtube-button {
+  display: inline-block;
+  margin-top: 20px;
+  border: 2px solid #ff0000; /* Borde rojo YouTube */
+  background-color: rgba(255, 0, 0, 0.1); /* Fondo rojo muy transparente */
+  color: #cc0000; /* Texto rojo oscuro */
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.EventoCartelera-button.youtube-button:hover {
+  background-color: #ff0000; /* Fondo rojo sólido */
+  border-color: #ff0000;
+  color: #ffffff; /* Texto blanco */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4); /* Sombra roja */
+}
+
 /* Ajustes del botón dentro del panel de Eventos Anteriores - Estilo YouTube */
 .eventos-info-panel .EventoCartelera-button {
   display: block;
