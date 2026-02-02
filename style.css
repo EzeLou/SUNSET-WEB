@@ -81,7 +81,9 @@ NAVIGATION BAR
   width: auto;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
   position: relative;
   top: 0px;
 }
@@ -113,7 +115,7 @@ NAVIGATION BAR
 }
 
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -137,17 +139,17 @@ NAVIGATION BAR
   .desktop-menu {
     display: none;
   }
-  
+
   .mobile-menu {
     display: block;
   }
-  
+
   .nav-container {
     padding: 0 15px;
     height: 60px;
     justify-content: space-between;
   }
-  
+
   .nav-logo-img {
     height: 100px;
     /* El logo empieza oculto y JS lo muestra cuando corresponde */
@@ -156,13 +158,13 @@ NAVIGATION BAR
     position: relative;
     top: 0px;
   }
-  
+
   /* Clase para mostrar el logo cuando el usuario hace scroll */
   .nav-logo-img.visible {
     opacity: 1;
     visibility: visible;
   }
-  
+
   /* En móviles, el logo debe estar a la izquierda */
   .nav-center {
     position: static;
@@ -175,25 +177,25 @@ NAVIGATION BAR
   .mobile-menu {
     display: none;
   }
-  
+
   .desktop-menu {
     display: flex;
     align-items: center;
     gap: 40px;
   }
-  
+
   .nav-menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
   }
-  
+
   /* En PC, el logo debe estar centrado */
   .nav-container {
     justify-content: center;
   }
-  
+
   .nav-center {
     position: absolute;
     left: 50%;
@@ -281,21 +283,24 @@ NAVIGATION BAR
     padding: 0 15px;
     height: 60px;
   }
-  
+
   .nav-logo-img {
     height: 55px;
     /* Mantener oculto por defecto, JS controla visibilidad */
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
   }
-  
-  .nav-left, .nav-right {
+
+  .nav-left,
+  .nav-right {
     gap: 15px;
   }
-  
+
   .nav-container {
     gap: 30px;
   }
-  
+
   .nav-link {
     font-size: 12px;
     padding: 6px 12px;
@@ -303,14 +308,15 @@ NAVIGATION BAR
 }
 
 @media (max-width: 480px) {
-  .nav-left, .nav-right {
+  .nav-left,
+  .nav-right {
     gap: 10px;
   }
-  
+
   .nav-container {
     gap: 20px;
   }
-  
+
   .nav-link {
     font-size: 11px;
     padding: 4px 8px;
@@ -366,7 +372,7 @@ header.video-header video {
 
 .logo-container {
   width: clamp(100px, 40vh, 600px);
-  margin: 0 auto 1.5vh auto; 
+  margin: 0 auto 1.5vh auto;
   transition: all 1.5s ease;
 }
 
@@ -374,7 +380,8 @@ header.video-header video {
   width: 10vh !important;
 }
 
-#sticky-header-logo { /*Logo fijo esquina*/
+#sticky-header-logo {
+  /*Logo fijo esquina*/
   position: fixed;
   top: 13px; /*Poiscion Y del logo*/
   left: 13px; /*Poiscion X del logo*/
@@ -398,7 +405,7 @@ header.video-header video {
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: clamp(0.05em, 0.8vw, 0.15em);
-  text-shadow: 0 clamp(4px, 1vw, 8px) clamp(8px, 2vw, 16px) rgba(0,0,0,0.8);
+  text-shadow: 0 clamp(4px, 1vw, 8px) clamp(8px, 2vw, 16px) rgba(0, 0, 0, 0.8);
   line-height: 1.1;
   z-index: 2;
   cursor: pointer;
@@ -418,7 +425,11 @@ header.video-header video {
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
   40% {
@@ -544,7 +555,7 @@ header.video-header video {
 
 .evento-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   will-change: transform;
 }
 
@@ -605,7 +616,9 @@ header.video-header video {
   font-weight: 500;
   color: black;
   padding: 8px 48px;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
   text-decoration: none;
 }
 
@@ -648,7 +661,7 @@ header.video-header video {
   flex-grow: 1;
   object-fit: cover;
   opacity: 0.9;
-  transition: .8s ease;
+  transition: 0.8s ease;
 }
 
 .EventoCartelera-gallery img {
@@ -663,16 +676,42 @@ header.video-header video {
 
 /* ========================================
    SISTEMA DE POSICIONAMIENTO DE IMÁGENES
-   ======================================== */ 
+   ======================================== */
 
 /* Evento 3: Sunset Motor Show Embalse */
-.EventoCartelera-gallery img.motorshow-embalse-1 { object-position: 50% center; }
-.EventoCartelera-gallery img.motorshow-embalse-2 { object-position: 75% center; }
-.EventoCartelera-gallery img.motorshow-embalse-3 { object-position: 85% center; }
-.EventoCartelera-gallery img.motorshow-embalse-4 { object-position: 65% center; }
-.EventoCartelera-gallery img.motorshow-embalse-5 { object-position: 50% center; }
+.EventoCartelera-gallery img.motorshow-embalse-1 {
+  object-position: 50% center;
+}
+.EventoCartelera-gallery img.motorshow-embalse-2 {
+  object-position: 75% center;
+}
+.EventoCartelera-gallery img.motorshow-embalse-3 {
+  object-position: 85% center;
+}
+.EventoCartelera-gallery img.motorshow-embalse-4 {
+  object-position: 65% center;
+}
+.EventoCartelera-gallery img.motorshow-embalse-5 {
+  object-position: 50% center;
+}
 
- 
+/* Evento Caroya - Ajustes de posición */
+.EventoCartelera-gallery img.nuevo-evento-1 {
+  object-position: 20% center;
+}
+.EventoCartelera-gallery img.nuevo-evento-2 {
+  object-position: 35% center;
+}
+.EventoCartelera-gallery img.nuevo-evento-3 {
+  object-position: 40% center;
+}
+.EventoCartelera-gallery img.nuevo-evento-4 {
+  object-position: 60% center;
+}
+.EventoCartelera-gallery img.nuevo-evento-5 {
+  object-position: 35% center;
+}
+
 /* ========================================
    SECCIÓN EVENTOS ANTERIORES - SISTEMA ESTANDARIZADO
    ======================================== */
@@ -730,23 +769,47 @@ header.video-header video {
 }
 
 @keyframes eaFadeSlideInRight {
-  from { opacity: 0; transform: translateX(20px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes eaFadeSlideInLeft {
-  from { opacity: 0; transform: translateX(-20px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes eaFadeSlideOutLeft {
-  from { opacity: 1; transform: translateX(0); }
-  to   { opacity: 0; transform: translateX(-20px); }
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
 }
 
 @keyframes eaFadeSlideOutRight {
-  from { opacity: 1; transform: translateX(0); }
-  to   { opacity: 0; transform: translateX(20px); }
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1003,7 +1066,10 @@ svg {
   opacity: 0;
   padding: 0 20px;
   background: #fff;
-  transition: max-height 0.5s ease, opacity 0.3s ease, padding 0.3s ease;
+  transition:
+    max-height 0.5s ease,
+    opacity 0.3s ease,
+    padding 0.3s ease;
   /* Aplicando tipografía de descripcion-estandar */
   text-align: left;
   color: #000;
@@ -1082,22 +1148,22 @@ svg {
     grid-template-columns: 1fr !important;
     gap: 30px !important;
   }
-  
+
   footer .grid > div:first-child {
     text-align: center;
   }
-  
+
   footer .grid > div:first-child > div {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  
+
   footer .grid > div:last-child {
     grid-template-columns: 1fr !important;
     gap: 20px !important;
   }
-  
+
   footer .grid > div:last-child > div {
     text-align: center;
   }
@@ -1107,15 +1173,15 @@ svg {
   footer {
     padding: 30px 15px !important;
   }
-  
+
   footer .grid {
     gap: 25px !important;
   }
-  
+
   footer .grid > div:last-child {
     gap: 15px !important;
   }
-  
+
   footer .grid > div:last-child > div ul {
     gap: 8px !important;
   }
@@ -1138,7 +1204,9 @@ svg {
     font-weight: 500;
     color: black;
     padding: 8px 10px;
-    transition: background-color 0.3s, color 0.3s;
+    transition:
+      background-color 0.3s,
+      color 0.3s;
     text-decoration: none;
     min-width: 0;
     width: 85%;
@@ -1204,9 +1272,13 @@ svg {
 /* Panel de información del visor de eventos pasados */
 .eventos-info-panel {
   flex: 0 0 30%; /* Aumentado a 30% para mejor proporción */
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); /* Mantener fondo negro degradado */
+  background: linear-gradient(
+    135deg,
+    #1a1a1a 0%,
+    #2d2d2d 100%
+  ); /* Mantener fondo negro degradado */
   padding: 3vh 2vw; /* Usando viewport units para padding responsive */
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3); /* Mantener sombra original */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Mantener sombra original */
   color: #ffffff; /* Texto blanco */
   position: sticky;
   top: 10vh; /* Usando viewport height */
@@ -1306,7 +1378,7 @@ svg {
   background-color: #000;
   border: 1px solid #000;
   box-sizing: border-box;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 /* Estilos base para todas las secciones del visor de eventos pasados */
@@ -1432,14 +1504,14 @@ svg {
     flex-direction: column;
     gap: 20px;
   }
-  
+
   .eventos-info-panel {
     flex: none;
     position: static;
     order: 1;
     height: 80vh; /* Altura fija a 80vh en tablet */
   }
-  
+
   .main-container-eventos {
     order: 2;
     height: 45vh;
@@ -1452,18 +1524,18 @@ svg {
   .eventos-viewer-container {
     gap: 15px;
   }
-  
+
   .eventos-info-panel {
     padding: 30px 20px;
     height: 80vh; /* Altura fija a 80vh en móvil */
   }
-  
-  .eventos-info-panel .titulo-estandar { 
+
+  .eventos-info-panel .titulo-estandar {
     font-size: 28px; /* Mantener proporción con cartelera */
     margin-bottom: 15px; /* Ajustar para móvil */
   }
-  
-  .eventos-info-panel .descripcion-estandar { 
+
+  .eventos-info-panel .descripcion-estandar {
     font-size: 16px; /* Mantener proporción con cartelera */
     margin-bottom: 20px; /* Ajustar para móvil */
   }
@@ -1471,13 +1543,13 @@ svg {
   .eventos-info-panel .EventoCartelera-button {
     margin-top: 28px;
   }
-  
+
   .main-container-eventos {
     height: 40vh;
     min-height: 280px;
     max-height: 350px;
   }
-  
+
   .eventos-anteriores-viewer {
     padding: 0 2%; /* Reducido de 5% a 2% para móviles */
   }
@@ -1488,13 +1560,13 @@ svg {
     padding: 20px 15px;
     height: 80vh; /* Altura fija a 80vh en móvil pequeño */
   }
-  
-  .eventos-info-panel .titulo-estandar { 
+
+  .eventos-info-panel .titulo-estandar {
     font-size: 24px; /* Mantener proporción con cartelera */
     margin-bottom: 12px; /* Ajustar para móvil pequeño */
   }
-  
-  .eventos-info-panel .descripcion-estandar { 
+
+  .eventos-info-panel .descripcion-estandar {
     font-size: 14px; /* Mantener proporción con cartelera */
     margin-bottom: 18px; /* Ajustar para móvil pequeño */
   }
@@ -1502,19 +1574,19 @@ svg {
   .eventos-info-panel .EventoCartelera-button {
     margin-top: 24px;
   }
-  
+
   .eventos-info-stats {
     gap: 15px;
   }
-  
+
   .stat-number {
     font-size: 28px;
   }
-  
+
   .stat-label {
     font-size: 12px;
   }
-  
+
   .main-container-eventos {
     height: 35vh;
     min-height: 220px;
@@ -1525,15 +1597,15 @@ svg {
 /* Estilos para pantallas menores a 1050px - Consolidado */
 @media (max-width: 1050px) {
   /* Contenedor principal */
-  .eventos-viewer-container { 
-    display: block; 
-    width: 100%; 
+  .eventos-viewer-container {
+    display: block;
+    width: 100%;
     gap: 2vh; /* Gap responsive */
   }
-  .eventos-anteriores-viewer { 
+  .eventos-anteriores-viewer {
     padding: 0; /* Sin padding para aprovechar todo el espacio */
   }
-  .EventosAnteriores-section { 
+  .EventosAnteriores-section {
     padding: 3vh 0; /* Padding responsive */
   }
 
@@ -1548,17 +1620,25 @@ svg {
     min-height: 45vh; /* Mínimo usando viewport height */
     max-height: 70vh; /* Máximo usando viewport height */
   }
-  
+
   .eventos-info-panel .titulo-estandar {
-    font-size: clamp(1.5rem, 3.5vw, 2rem); /* Mantener proporción con cartelera */
+    font-size: clamp(
+      1.5rem,
+      3.5vw,
+      2rem
+    ); /* Mantener proporción con cartelera */
     margin-bottom: 15px; /* Espaciado consistente */
   }
-  
-  .eventos-info-panel .descripcion-estandar { 
-    font-size: clamp(1rem, 2.2vw, 1.2rem); /* Mantener proporción con cartelera */
+
+  .eventos-info-panel .descripcion-estandar {
+    font-size: clamp(
+      1rem,
+      2.2vw,
+      1.2rem
+    ); /* Mantener proporción con cartelera */
     margin-bottom: 20px; /* Espaciado consistente */
   }
-  
+
   .eventos-info-stats {
     gap: 1.5vw; /* Gap responsive */
     margin-top: 1.5vh; /* Espaciado reducido */
@@ -1571,9 +1651,9 @@ svg {
   }
 
   /* Mobile viewer: main image + thumbs */
-  .eventos-mobile-viewer { 
-    display: block; 
-    width: 100%; 
+  .eventos-mobile-viewer {
+    display: block;
+    width: 100%;
   }
   .eventos-mobile-viewer .mobile-main {
     display: block;
@@ -1610,5 +1690,8 @@ svg {
 
 /* Ocultar mobile viewer en pantallas grandes */
 @media (min-width: 1051px) {
-  .eventos-mobile-viewer { display: none; }
+  .eventos-mobile-viewer {
+    display: none;
+  }
 }
+
