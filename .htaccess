@@ -2,15 +2,15 @@
 RewriteEngine On
 
 ##########################################
-# 🔹 1. Redirección limpia para /tyc-sorteo
+# 🔹 1. Redirección limpia para /tyc
 ##########################################
 
-# Si el usuario escribe /tyc-sorteo/indexSorteo.html → redirigir a /tyc-sorteo
-RewriteCond %{THE_REQUEST} /tyc-sorteo/indexSorteo\.html [NC]
-RewriteRule ^tyc-sorteo/indexSorteo\.html$ /tyc-sorteo [R=301,L]
+# Si el usuario escribe /tyc/indexTC.html → redirigir a /tyc
+RewriteCond %{THE_REQUEST} /tyc/indexTC\.html [NC]
+RewriteRule ^tyc/indexTC\.html$ /tyc [R=301,L]
 
-# Definir archivo por defecto dentro de /tyc-sorteo
-DirectoryIndex indexSorteo.html index.html index.php
+# Definir archivo por defecto dentro de /tyc
+DirectoryIndex indexTC.html index.html index.php
 
 
 ##########################################
